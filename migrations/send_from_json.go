@@ -8,7 +8,7 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/Amierza/go-boiler-plate/helpers"
+	"github.com/Amierza/go-boiler-plate/helper"
 	"gorm.io/gorm"
 )
 
@@ -46,7 +46,7 @@ func SeedFromJSON[T any](db *gorm.DB, filePath string, model T, uniqueFields ...
 				if !f.IsValid() {
 					return fmt.Errorf("field %s not found in model", field)
 				}
-				query = query.Where(fmt.Sprintf("%s = ?", helpers.SnakeCase(field)), f.Interface())
+				query = query.Where(fmt.Sprintf("%s = ?", helper.SnakeCase(field)), f.Interface())
 			}
 		}
 

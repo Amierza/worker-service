@@ -7,6 +7,7 @@ import (
 	"github.com/Amierza/go-boiler-plate/cmd"
 	"github.com/Amierza/go-boiler-plate/config/database"
 	"github.com/Amierza/go-boiler-plate/handler"
+	"github.com/Amierza/go-boiler-plate/jwt"
 	"github.com/Amierza/go-boiler-plate/middleware"
 	"github.com/Amierza/go-boiler-plate/repository"
 	"github.com/Amierza/go-boiler-plate/routes"
@@ -24,7 +25,7 @@ func main() {
 	}
 
 	var (
-		jwtService = service.NewJWTService()
+		jwtService = jwt.NewJWTService()
 
 		userRepo    = repository.NewUserRepository(db)
 		userService = service.NewUserService(userRepo, jwtService)

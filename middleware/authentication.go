@@ -5,22 +5,22 @@ import (
 	"strings"
 
 	"github.com/Amierza/go-boiler-plate/dto"
-	"github.com/Amierza/go-boiler-plate/service"
-	"github.com/Amierza/go-boiler-plate/utils"
+	"github.com/Amierza/go-boiler-plate/jwt"
+	"github.com/Amierza/go-boiler-plate/response"
 	"github.com/gin-gonic/gin"
 )
 
-func Authentication(jwtService service.IJWTService) gin.HandlerFunc {
+func Authentication(jwtService jwt.IJWTService) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		authHeader := ctx.GetHeader("Authorization")
 		if authHeader == "" {
-			res := utils.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_NOT_FOUND, nil)
+			res := response.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_NOT_FOUND, nil)
 			ctx.AbortWithStatusJSON(http.StatusUnauthorized, res)
 			return
 		}
 
 		if !strings.Contains(authHeader, "Bearer") {
-			res := utils.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_NOT_VALID, nil)
+			res := response.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_NOT_VALID, nil)
 			ctx.AbortWithStatusJSON(http.StatusUnauthorized, res)
 			return
 		}
@@ -28,20 +28,20 @@ func Authentication(jwtService service.IJWTService) gin.HandlerFunc {
 		authHeader = strings.Replace(authHeader, "Bearer ", "", -1)
 		token, err := jwtService.ValidateToken(authHeader)
 		if err != nil {
-			res := utils.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_NOT_VALID, nil)
+			res := response.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_NOT_VALID, nil)
 			ctx.AbortWithStatusJSON(http.StatusUnauthorized, res)
 			return
 		}
 
 		if !token.Valid {
-			res := utils.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_DENIED_ACCESS, nil)
+			res := response.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, dto.MESSAGE_FAILED_TOKEN_DENIED_ACCESS, nil)
 			ctx.AbortWithStatusJSON(http.StatusUnauthorized, res)
 			return
 		}
 
 		userID, err := jwtService.GetUserIDByToken(authHeader)
 		if err != nil {
-			res := utils.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, err.Error(), nil)
+			res := response.BuildResponseFailed(dto.MESSAGE_FAILED_PROSES_REQUEST, err.Error(), nil)
 			ctx.AbortWithStatusJSON(http.StatusUnauthorized, res)
 			return
 		}

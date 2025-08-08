@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"github.com/Amierza/go-boiler-plate/helpers"
+	"github.com/Amierza/go-boiler-plate/helper"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
@@ -23,7 +23,7 @@ func (u *User) BeforeCreate(tx *gorm.DB) error {
 	}()
 
 	var err error
-	u.Password, err = helpers.HashPassword(u.Password)
+	u.Password, err = helper.HashPassword(u.Password)
 	if err != nil {
 		return err
 	}
