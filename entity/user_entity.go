@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"github.com/Amierza/go-boiler-plate/helper"
+	"github.com/Amierza/nawasena-backend/helper"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
