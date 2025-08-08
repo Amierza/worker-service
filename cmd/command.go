@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Amierza/nawasena-backend/migrations"
+	"github.com/Amierza/go-boiler-plate/migrations"
 	"gorm.io/gorm"
 )
 

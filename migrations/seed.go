@@ -1,7 +1,7 @@
 package migrations
 
 import (
-	"github.com/Amierza/nawasena-backend/entity"
+	"github.com/Amierza/go-boiler-plate/entity"
 	"gorm.io/gorm"
 )
 

@@ -8,7 +8,7 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/Amierza/nawasena-backend/helper"
+	"github.com/Amierza/go-boiler-plate/helper"
 	"gorm.io/gorm"
 )
 

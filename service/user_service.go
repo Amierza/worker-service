@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/Amierza/nawasena-backend/jwt"
-	"github.com/Amierza/nawasena-backend/repository"
+	"github.com/Amierza/go-boiler-plate/jwt"
+	"github.com/Amierza/go-boiler-plate/repository"
 )
 
 type (

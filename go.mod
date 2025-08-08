@@ -1,9 +1,8 @@
-module github.com/Amierza/nawasena-backend
+module github.com/Amierza/go-boiler-plate
 
 go 1.23.2
 
 require (
-	github.com/Amierza/go-boiler-plate v0.0.0-20250808104741-db6caa831444
 	golang.org/x/crypto v0.23.0
 	gorm.io/gorm v1.30.0
 )

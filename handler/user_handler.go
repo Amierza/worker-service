@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/Amierza/nawasena-backend/service"
+	"github.com/Amierza/go-boiler-plate/service"
 )
 
 type (
