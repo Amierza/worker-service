@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/Amierza/go-boiler-plate/handler"
-	"github.com/Amierza/go-boiler-plate/jwt"
+	"github.com/Amierza/chat-service/handler"
+	"github.com/Amierza/chat-service/jwt"
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/Amierza/go-boiler-plate/service"
+	"github.com/Amierza/chat-service/service"
 )
 
 type (

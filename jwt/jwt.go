@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Amierza/go-boiler-plate/dto"
+	"github.com/Amierza/chat-service/dto"
 	"github.com/golang-jwt/jwt/v5"
 )
 
