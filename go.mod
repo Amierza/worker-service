@@ -1,4 +1,4 @@
-module github.com/Amierza/go-boiler-plate
+module github.com/Amierza/chat-service
 
 go 1.23.2
 

@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/Amierza/go-boiler-plate/jwt"
-	"github.com/Amierza/go-boiler-plate/repository"
+	"github.com/Amierza/chat-service/jwt"
+	"github.com/Amierza/chat-service/repository"
 )
 
 type (

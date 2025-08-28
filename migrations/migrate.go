@@ -1,13 +1,21 @@
 package migrations
 
 import (
-	"github.com/Amierza/go-boiler-plate/entity"
+	"github.com/Amierza/chat-service/entity"
 	"gorm.io/gorm"
 )
 
 func Migrate(db *gorm.DB) error {
 	if err := db.AutoMigrate(
 		&entity.User{},
+
+		&entity.Chatroom{},
+		&entity.Message{},
+
+		&entity.Faculty{},
+		&entity.StudyProgram{},
+		&entity.Lecturer{},
+		&entity.LecturerStudyProgram{},
 	); err != nil {
 		return err
 	}

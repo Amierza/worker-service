@@ -1,12 +1,20 @@
 package migrations
 
 import (
-	"github.com/Amierza/go-boiler-plate/entity"
+	"github.com/Amierza/chat-service/entity"
 	"gorm.io/gorm"
 )
 
 func Rollback(db *gorm.DB) error {
 	tables := []interface{}{
+		&entity.LecturerStudyProgram{},
+		&entity.Lecturer{},
+		&entity.StudyProgram{},
+		&entity.Faculty{},
+
+		&entity.Message{},
+		&entity.Chatroom{},
+
 		&entity.User{},
 	}
 

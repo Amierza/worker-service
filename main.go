@@ -4,14 +4,14 @@ import (
 	"log"
 	"os"
 
-	"github.com/Amierza/go-boiler-plate/cmd"
-	"github.com/Amierza/go-boiler-plate/config/database"
-	"github.com/Amierza/go-boiler-plate/handler"
-	"github.com/Amierza/go-boiler-plate/jwt"
-	"github.com/Amierza/go-boiler-plate/middleware"
-	"github.com/Amierza/go-boiler-plate/repository"
-	"github.com/Amierza/go-boiler-plate/routes"
-	"github.com/Amierza/go-boiler-plate/service"
+	"github.com/Amierza/chat-service/cmd"
+	"github.com/Amierza/chat-service/config/database"
+	"github.com/Amierza/chat-service/handler"
+	"github.com/Amierza/chat-service/jwt"
+	"github.com/Amierza/chat-service/middleware"
+	"github.com/Amierza/chat-service/repository"
+	"github.com/Amierza/chat-service/routes"
+	"github.com/Amierza/chat-service/service"
 	"github.com/gin-gonic/gin"
 )
 
