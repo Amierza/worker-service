@@ -5,10 +5,11 @@ import (
 )
 
 type Lecturer struct {
-	ID    uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
-	Nip   string    `gorm:"unique;not null" json:"nip"`
-	Name  string    `gorm:"not null" json:"name"`
-	Email string    `gorm:"unique;not null" json:"email"`
+	ID       uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
+	Nip      string    `gorm:"unique;not null" json:"nip"`
+	Name     string    `gorm:"not null" json:"name"`
+	Email    string    `gorm:"unique;not null" json:"email"`
+	Password string    `json:"password"`
 
 	LecturerStudyPrograms []LecturerStudyProgram `gorm:"foreignKey:LecturerID;constraint:OnDelete:CASCADE;" json:"lecturer_study_programs"`
 

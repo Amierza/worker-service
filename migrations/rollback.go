@@ -15,7 +15,7 @@ func Rollback(db *gorm.DB) error {
 		&entity.Message{},
 		&entity.Chatroom{},
 
-		&entity.User{},
+		&entity.Student{},
 	}
 
 	for _, table := range tables {

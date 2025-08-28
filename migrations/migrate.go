@@ -7,7 +7,7 @@ import (
 
 func Migrate(db *gorm.DB) error {
 	if err := db.AutoMigrate(
-		&entity.User{},
+		&entity.Student{},
 
 		&entity.Chatroom{},
 		&entity.Message{},

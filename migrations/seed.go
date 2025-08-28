@@ -6,7 +6,7 @@ import (
 )
 
 func Seed(db *gorm.DB) error {
-	err := SeedFromJSON[entity.User](db, "./migrations/json/users.json", entity.User{}, "Email")
+	err := SeedFromJSON[entity.Student](db, "./migrations/json/students.json", entity.Student{}, "Email", "Nim")
 	if err != nil {
 		return err
 	}
