@@ -6,6 +6,8 @@ import (
 
 	"github.com/Amierza/chat-service/cmd"
 	"github.com/Amierza/chat-service/config/database"
+	"github.com/Amierza/chat-service/config/rabbitmq"
+	"github.com/Amierza/chat-service/config/redis"
 	"github.com/Amierza/chat-service/handler"
 	"github.com/Amierza/chat-service/jwt"
 	"github.com/Amierza/chat-service/middleware"
@@ -16,8 +18,17 @@ import (
 )
 
 func main() {
+	// setup potgres connection
 	db := database.SetUpPostgreSQLConnection()
 	defer database.ClosePostgreSQLConnection(db)
+
+	// setup redis connection
+	redisClient := redis.SetUpRedisConnection()
+	defer redis.CloseRedisConnection(redisClient)
+
+	// setup rabbitmq connection
+	rabbitConn := rabbitmq.SetUpRabbitMQConnection()
+	defer rabbitmq.CloseRabbitMQConnection(rabbitConn)
 
 	if len(os.Args) > 1 {
 		cmd.Command(db)
