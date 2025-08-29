@@ -1,0 +1,35 @@
+package entity
+
+import (
+	"github.com/Amierza/chat-service/helper"
+	"github.com/google/uuid"
+	"gorm.io/gorm"
+)
+
+type User struct {
+	ID         uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
+	Identifier string    `gorm:"not null" json:"identifier"`
+	Role       Role      `gorm:"not null" json:"role"`
+	Password   string    `json:"password"`
+
+	Chatrooms []Chatroom `gorm:"foreignKey:UserID;constraint:OnDelete:CASCADE;" json:"chatrooms"`
+
+	StudentID *uuid.UUID `gorm:"type:uuid;index" json:"student_id,omitempty"`
+	Student   Student    `gorm:"foreignKey:StudentID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"student,omitempty"`
+
+	LecturerID *uuid.UUID `gorm:"type:uuid;index" json:"lecturer_id,omitempty"`
+	Lecturer   Lecturer   `gorm:"foreignKey:LecturerID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"lecturer,omitempty"`
+
+	TimeStamp
+}
+
+func (s *User) BeforeCreate(tx *gorm.DB) error {
+	var err error
+
+	s.Password, err = helper.HashPassword(s.Password)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

@@ -6,7 +6,22 @@ import (
 )
 
 func Seed(db *gorm.DB) error {
-	err := SeedFromJSON[entity.Student](db, "./migrations/json/students.json", entity.Student{}, "Email", "Nim")
+	err := SeedFromJSON[entity.Faculty](db, "./migrations/json/faculties.json", entity.Faculty{}, "Name")
+	if err != nil {
+		return err
+	}
+
+	err = SeedFromJSON[entity.StudyProgram](db, "./migrations/json/study_programs.json", entity.StudyProgram{}, "Name", "Degree")
+	if err != nil {
+		return err
+	}
+
+	err = SeedFromJSON[entity.Student](db, "./migrations/json/students.json", entity.Student{}, "Nim")
+	if err != nil {
+		return err
+	}
+
+	err = SeedFromJSON[entity.User](db, "./migrations/json/users.json", entity.User{}, "Identifier", "Role")
 	if err != nil {
 		return err
 	}

@@ -1,9 +1,9 @@
 [
   {
-    "id": "d7f3e1c2-4e27-4d83-91d3-8cda0b1b68a1",
+    "id": "b6c7b43d-ab5d-4c3d-b203-ff781cc7b59b",
     "nim": "187231059",
-    "name": "Ahmad Mirza Rafiq Azmi",
+    "name": "student",
     "email": "ahmadmirza0585@gmail.com",
-    "password": "AhmadMirza15"
+    "faculty_id": "5cc50933-4a25-4162-8391-25b09ae9c0ac"
   }
 ]

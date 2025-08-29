@@ -1,0 +1,110 @@
+[
+  {
+    "id": "3de667f7-cbfe-4811-89e5-d2635f6592c5",
+    "name": "Ilmu Hukum",
+    "degree": "S1",
+    "faculty_id": "f9ac65c2-db1e-4e32-922c-f6fadbeda0cd"
+  },
+  {
+    "id": "aff6194d-f37e-4fee-abce-5afe9e7b0917",
+    "name": "Ilmu Hukum",
+    "degree": "S2",
+    "faculty_id": "f9ac65c2-db1e-4e32-922c-f6fadbeda0cd"
+  },
+  {
+    "id": "9c7f0965-8c9f-4e87-bf7d-ef1a114b8b40",
+    "name": "Ilmu Hukum",
+    "degree": "S3",
+    "faculty_id": "f9ac65c2-db1e-4e32-922c-f6fadbeda0cd"
+  },
+  {
+    "id": "7b027d30-086e-497e-9922-c1d547aa6985",
+    "name": "Fisioterapi",
+    "degree": "S1",
+    "faculty_id": "03d46505-fa5d-4d77-b1cb-94b68adccf75"
+  },
+  {
+    "id": "1ee0b8e0-6a6b-4250-9171-adbf080d06c5",
+    "name": "Teknik Informatika",
+    "degree": "S1",
+    "faculty_id": "03d46505-fa5d-4d77-b1cb-94b68adccf75"
+  },
+  {
+    "id": "facb5423-d216-4c2d-9263-cd1dc5734d3b",
+    "name": "Teknologi Rekayasa Instrumentasi dan Kontrol",
+    "degree": "S1",
+    "faculty_id": "03d46505-fa5d-4d77-b1cb-94b68adccf75"
+  },
+  {
+    "id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f",
+    "name": "Sistem Informasi",
+    "degree": "S1",
+    "faculty_id": "5cc50933-4a25-4162-8391-25b09ae9c0ac"
+  },
+  {
+    "id": "2b8697a4-8347-4c90-965f-c210b6fbe4a0",
+    "name": "Statistika",
+    "degree": "S1",
+    "faculty_id": "5cc50933-4a25-4162-8391-25b09ae9c0ac"
+  },
+  {
+    "id": "bdb7ccc4-4b9b-4f44-b030-b0f4187c3a40",
+    "name": "Fisika",
+    "degree": "S1",
+    "faculty_id": "5cc50933-4a25-4162-8391-25b09ae9c0ac"
+  },
+  {
+    "id": "2c4fdcdc-7f05-4c65-899e-8829a7eae7f1",
+    "name": "Psikologi",
+    "degree": "S1",
+    "faculty_id": "461c8e2b-00df-4296-87bf-ca6f0d975a4b"
+  },
+  {
+    "id": "a5b1b6e9-573d-4ce3-9e25-ac5bbaa66aa5",
+    "name": "Psikologi",
+    "degree": "S2",
+    "faculty_id": "461c8e2b-00df-4296-87bf-ca6f0d975a4b"
+  },
+  {
+    "id": "24af3ced-3ef9-4eec-9590-4cdbc97ec3ae",
+    "name": "Psikologi",
+    "degree": "S3",
+    "faculty_id": "461c8e2b-00df-4296-87bf-ca6f0d975a4b"
+  },
+  {
+    "id": "d387f95b-69d7-41a7-8a63-a24decada6ee",
+    "name": "Farmasi",
+    "degree": "S1",
+    "faculty_id": "ce78affd-6ba4-481f-be16-41cf57eb892c"
+  },
+  {
+    "id": "a7a390ca-81b0-4191-8133-4f39234b176b",
+    "name": "Ilmu Farmasi",
+    "degree": "S2",
+    "faculty_id": "ce78affd-6ba4-481f-be16-41cf57eb892c"
+  },
+  {
+    "id": "4df7f791-e579-4e04-b8cc-06289f98466f",
+    "name": "Ilmu Farmasi",
+    "degree": "S3",
+    "faculty_id": "ce78affd-6ba4-481f-be16-41cf57eb892c"
+  },
+  {
+    "id": "09ac7b65-93b9-44d2-86f4-ae83fd6287cc",
+    "name": "Kebidanan",
+    "degree": "S1",
+    "faculty_id": "bf0ac041-6b02-4b39-97a1-98019f59b46e"
+  },
+  {
+    "id": "dbb23061-f65f-487d-8f40-3f04e098eb97",
+    "name": "Kedokteran",
+    "degree": "S1",
+    "faculty_id": "bf0ac041-6b02-4b39-97a1-98019f59b46e"
+  },
+  {
+    "id": "f23d1df4-cc57-4aee-87f7-307f1c49347b",
+    "name": "Ilmu Kedokteran",
+    "degree": "S3",
+    "faculty_id": "bf0ac041-6b02-4b39-97a1-98019f59b46e"
+  }
+]
