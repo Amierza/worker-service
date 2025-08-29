@@ -10,8 +10,8 @@ type Chatroom struct {
 
 	Messages []Message `gorm:"foreignKey:ChatroomID;constraint:OnDelete:CASCADE;" json:"messages"`
 
-	StudentID uuid.UUID `gorm:"type:uuid;index" json:"student_id,omitempty"`
-	Student   Student   `gorm:"foreignKey:StudentID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"student,omitempty"`
+	UserID uuid.UUID `gorm:"type:uuid;index" json:"user_id,omitempty"`
+	User   User      `gorm:"foreignKey:UserID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"user,omitempty"`
 
 	TimeStamp
 }
