@@ -12,7 +12,7 @@ type User struct {
 	Role       Role      `gorm:"not null" json:"role"`
 	Password   string    `json:"password"`
 
-	Chatrooms []Chatroom `gorm:"foreignKey:UserID;constraint:OnDelete:CASCADE;" json:"chatrooms"`
+	Messages []Message `gorm:"foreignKey:SenderID;constraint:OnDelete:CASCADE;" json:"messages"`
 
 	StudentID *uuid.UUID `gorm:"type:uuid;index" json:"student_id,omitempty"`
 	Student   Student    `gorm:"foreignKey:StudentID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"student,omitempty"`
@@ -23,11 +23,15 @@ type User struct {
 	TimeStamp
 }
 
-func (s *User) BeforeCreate(tx *gorm.DB) error {
+func (u *User) BeforeCreate(tx *gorm.DB) error {
 	var err error
 
-	s.Password, err = helper.HashPassword(s.Password)
+	u.Password, err = helper.HashPassword(u.Password)
 	if err != nil {
+		return err
+	}
+
+	if !IsValidRole(u.Role) {
 		return err
 	}
 

@@ -1,9 +1,16 @@
 [
   {
-    "id": "d7f3e1c2-4e27-4d83-91d3-8cda0b1b68a1",
+    "id": "a2439447-b4d8-4f4a-a5b5-6530ab46f93f",
     "identifier": "187231059",
     "role": "student",
     "password": "AhmadMirza15",
-    "student_id": "b6c7b43d-ab5d-4c3d-b203-ff781cc7b59b"
+    "student_id": "d06c5557-3146-49bc-92e2-31850d42342f"
+  },
+  {
+    "id": "f9f38a29-5d2b-47cf-93fc-5af28cd4c432",
+    "identifier": "198531082010011031",
+    "role": "lecturer",
+    "password": "YudiPramono15",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb"
   }
 ]

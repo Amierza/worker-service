@@ -1,0 +1,632 @@
+[
+  {
+    "id": "52dd0ebe-505a-452b-88bd-9042bbc5c687",
+    "nip": "198501012010011001",
+    "name": "Dr. Ahmad Zainudin, S.H., M.H.",
+    "email": "ahmad.zainudin@univ.ac.id",
+    "study_program_id": "3de667f7-cbfe-4811-89e5-d2635f6592c5"
+  },
+  {
+    "id": "7f3a2b89-c4d5-4e6f-9a1b-2c3d4e5f6789",
+    "nip": "198702152011012002",
+    "name": "Prof. Dr. Siti Nurhaliza, S.H., M.H.",
+    "email": "siti.nurhaliza@univ.ac.id",
+    "study_program_id": "3de667f7-cbfe-4811-89e5-d2635f6592c5"
+  },
+  {
+    "id": "9e8d7c6b-5a4f-4321-8765-4321fedcba98",
+    "nip": "198903202012013003",
+    "name": "Dr. Bambang Suryanto, S.H., M.H.",
+    "email": "bambang.suryanto@univ.ac.id",
+    "study_program_id": "3de667f7-cbfe-4811-89e5-d2635f6592c5"
+  },
+  {
+    "id": "1a2b3c4d-5e6f-4789-9abc-def012345678",
+    "nip": "199004252013014004",
+    "name": "Dr. Indira Maharani, S.H., M.H.",
+    "email": "indira.maharani@univ.ac.id",
+    "study_program_id": "3de667f7-cbfe-4811-89e5-d2635f6592c5"
+  },
+  {
+    "id": "8b7c6d5e-4f3a-4098-7654-321098765432",
+    "nip": "199105302014015005",
+    "name": "Dr. Rahmat Hidayat, S.H., M.H.",
+    "email": "rahmat.hidayat@univ.ac.id",
+    "study_program_id": "3de667f7-cbfe-4811-89e5-d2635f6592c5"
+  },
+  {
+    "id": "f5e4d3c2-b1a0-4567-8901-234567890123",
+    "nip": "198506102015016006",
+    "name": "Prof. Dr. Kartika Dewi, S.H., M.H.",
+    "email": "kartika.dewi@univ.ac.id",
+    "study_program_id": "aff6194d-f37e-4fee-abce-5afe9e7b0917"
+  },
+  {
+    "id": "3c2b1a09-8765-4321-bcde-f012345678ab",
+    "nip": "198707152016017007",
+    "name": "Dr. Muhammad Ridwan, S.H., M.H.",
+    "email": "muhammad.ridwan@univ.ac.id",
+    "study_program_id": "aff6194d-f37e-4fee-abce-5afe9e7b0917"
+  },
+  {
+    "id": "6d5c4b3a-2109-4876-5432-109876543210",
+    "nip": "198808202017018008",
+    "name": "Prof. Dr. Fatimah Zahra, S.H., M.H.",
+    "email": "fatimah.zahra@univ.ac.id",
+    "study_program_id": "aff6194d-f37e-4fee-abce-5afe9e7b0917"
+  },
+  {
+    "id": "9a8b7c6d-5e4f-4321-0987-6543210fedcb",
+    "nip": "198909252018019009",
+    "name": "Dr. Andi Prasetyo, S.H., M.H.",
+    "email": "andi.prasetyo@univ.ac.id",
+    "study_program_id": "aff6194d-f37e-4fee-abce-5afe9e7b0917"
+  },
+  {
+    "id": "2b1a0987-6543-4210-fedc-ba9876543210",
+    "nip": "199010302019020010",
+    "name": "Dr. Sri Wahyuni, S.H., M.H.",
+    "email": "sri.wahyuni@univ.ac.id",
+    "study_program_id": "aff6194d-f37e-4fee-abce-5afe9e7b0917"
+  },
+  {
+    "id": "5e4d3c2b-1a09-4876-5432-10fedcba9876",
+    "nip": "198511052020021011",
+    "name": "Prof. Dr. Hadi Sutrisno, S.H., M.H.",
+    "email": "hadi.sutrisno@univ.ac.id",
+    "study_program_id": "9c7f0965-8c9f-4e87-bf7d-ef1a114b8b40"
+  },
+  {
+    "id": "8f7e6d5c-4b3a-4210-9876-543210987654",
+    "nip": "198612102021022012",
+    "name": "Dr. Nurul Hidayah, S.H., M.H.",
+    "email": "nurul.hidayah@univ.ac.id",
+    "study_program_id": "9c7f0965-8c9f-4e87-bf7d-ef1a114b8b40"
+  },
+  {
+    "id": "b0a98765-4321-4fed-cba9-876543210fed",
+    "nip": "198713152022023013",
+    "name": "Prof. Dr. Agus Salim, S.H., M.H.",
+    "email": "agus.salim@univ.ac.id",
+    "study_program_id": "9c7f0965-8c9f-4e87-bf7d-ef1a114b8b40"
+  },
+  {
+    "id": "d3c2b1a0-9876-4543-210f-edcba9876543",
+    "nip": "198814202023024014",
+    "name": "Dr. Dewi Sartika, S.H., M.H.",
+    "email": "dewi.sartika@univ.ac.id",
+    "study_program_id": "9c7f0965-8c9f-4e87-bf7d-ef1a114b8b40"
+  },
+  {
+    "id": "f6e5d4c3-b2a1-4098-7654-321fedcba098",
+    "nip": "198915252024025015",
+    "name": "Dr. Budi Santoso, S.H., M.H.",
+    "email": "budi.santoso@univ.ac.id",
+    "study_program_id": "9c7f0965-8c9f-4e87-bf7d-ef1a114b8b40"
+  },
+  {
+    "id": "194a8b7c-6d5e-4f32-1098-76543210abcd",
+    "nip": "198516052010011016",
+    "name": "Dr. Maria Ulfa, S.Ft., M.Fis.",
+    "email": "maria.ulfa@univ.ac.id",
+    "study_program_id": "7b027d30-086e-497e-9922-c1d547aa6985"
+  },
+  {
+    "id": "c5b4a398-7654-4321-0fed-cba987654321",
+    "nip": "198617102011012017",
+    "name": "Prof. Dr. Eko Prasetyo, S.Ft., M.Fis.",
+    "email": "eko.prasetyo@univ.ac.id",
+    "study_program_id": "7b027d30-086e-497e-9922-c1d547aa6985"
+  },
+  {
+    "id": "e8d7c6b5-a432-4109-8765-4321098765ab",
+    "nip": "198718152012013018",
+    "name": "Dr. Ratna Sari, S.Ft., M.Fis.",
+    "email": "ratna.sari@univ.ac.id",
+    "study_program_id": "7b027d30-086e-497e-9922-c1d547aa6985"
+  },
+  {
+    "id": "01ba9876-5432-4fed-cba0-987654321def",
+    "nip": "198819202013014019",
+    "name": "Dr. Fajar Ramadhan, S.Ft., M.Fis.",
+    "email": "fajar.ramadhan@univ.ac.id",
+    "study_program_id": "7b027d30-086e-497e-9922-c1d547aa6985"
+  },
+  {
+    "id": "4dcba987-6543-4210-fedc-ba0987654321",
+    "nip": "198920252014015020",
+    "name": "Dr. Sinta Dewi, S.Ft., M.Fis.",
+    "email": "sinta.dewi@univ.ac.id",
+    "study_program_id": "7b027d30-086e-497e-9922-c1d547aa6985"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-4789-abc1-234567890111",
+    "nip": "198521062015016021",
+    "name": "Dr. Rudi Hartono, S.Kom., M.Kom.",
+    "email": "rudi.hartono@univ.ac.id",
+    "study_program_id": "1ee0b8e0-6a6b-4250-9171-adbf080d06c5"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-4891-bcd2-345678901222",
+    "nip": "198622112016017022",
+    "name": "Prof. Dr. Lina Marlina, S.Kom., M.Kom.",
+    "email": "lina.marlina@univ.ac.id",
+    "study_program_id": "1ee0b8e0-6a6b-4250-9171-adbf080d06c5"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-4912-cde3-456789012333",
+    "nip": "198723162017018023",
+    "name": "Dr. Arief Budiman, S.Kom., M.Kom.",
+    "email": "arief.budiman@univ.ac.id",
+    "study_program_id": "1ee0b8e0-6a6b-4250-9171-adbf080d06c5"
+  },
+  {
+    "id": "d4e5f6a7-b8c9-4a23-def4-567890123444",
+    "nip": "198824212018019024",
+    "name": "Dr. Novi Andriani, S.Kom., M.Kom.",
+    "email": "novi.andriani@univ.ac.id",
+    "study_program_id": "1ee0b8e0-6a6b-4250-9171-adbf080d06c5"
+  },
+  {
+    "id": "e5f6a7b8-c9da-4b34-ef05-678901234555",
+    "nip": "198925262019020025",
+    "name": "Dr. Dedi Kurniawan, S.Kom., M.Kom.",
+    "email": "dedi.kurniawan@univ.ac.id",
+    "study_program_id": "1ee0b8e0-6a6b-4250-9171-adbf080d06c5"
+  },
+  {
+    "id": "f6a7b8c9-daeb-4c45-f016-789012345666",
+    "nip": "198526072020021026",
+    "name": "Dr. Andi Wijaya, S.T., M.T.",
+    "email": "andi.wijaya@univ.ac.id",
+    "study_program_id": "facb5423-d216-4c2d-9263-cd1dc5734d3b"
+  },
+  {
+    "id": "a7b8c9da-ebfc-4d56-0127-890123456777",
+    "nip": "198627122021022027",
+    "name": "Prof. Dr. Sari Indah, S.T., M.T.",
+    "email": "sari.indah@univ.ac.id",
+    "study_program_id": "facb5423-d216-4c2d-9263-cd1dc5734d3b"
+  },
+  {
+    "id": "b8c9daeb-fc0d-4e67-1238-901234567888",
+    "nip": "198728172022023028",
+    "name": "Dr. Hendra Pratama, S.T., M.T.",
+    "email": "hendra.pratama@univ.ac.id",
+    "study_program_id": "facb5423-d216-4c2d-9263-cd1dc5734d3b"
+  },
+  {
+    "id": "c9daebfc-0d1e-4f78-2349-012345678999",
+    "nip": "198829222023024029",
+    "name": "Dr. Fitri Rahayu, S.T., M.T.",
+    "email": "fitri.rahayu@univ.ac.id",
+    "study_program_id": "facb5423-d216-4c2d-9263-cd1dc5734d3b"
+  },
+  {
+    "id": "daebfc0d-1e2f-4089-345a-123456789aaa",
+    "nip": "198930272024025030",
+    "name": "Dr. Rizki Firmansyah, S.T., M.T.",
+    "email": "rizki.firmansyah@univ.ac.id",
+    "study_program_id": "facb5423-d216-4c2d-9263-cd1dc5734d3b"
+  },
+  {
+    "id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "nip": "198531082010011031",
+    "name": "Dr. Yudi Pramono, S.Kom., M.SI.",
+    "email": "yudi.pramono@univ.ac.id",
+    "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
+  },
+  {
+    "id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "nip": "198632132011012032",
+    "name": "Prof. Dr. Maya Sari, S.Kom., M.SI.",
+    "email": "maya.sari@univ.ac.id",
+    "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
+  },
+  {
+    "id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "nip": "198733182012013033",
+    "name": "Dr. Toni Hermawan, S.Kom., M.SI.",
+    "email": "toni.hermawan@univ.ac.id",
+    "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
+  },
+  {
+    "id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "nip": "198834232013014034",
+    "name": "Dr. Wulan Dari, S.Kom., M.SI.",
+    "email": "wulan.dari@univ.ac.id",
+    "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
+  },
+  {
+    "id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "nip": "198935282014015035",
+    "name": "Dr. Bayu Setiawan, S.Kom., M.SI.",
+    "email": "bayu.setiawan@univ.ac.id",
+    "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
+  },
+  {
+    "id": "30415263-7485-4eef-9ab0-789abcdef001",
+    "nip": "198536092015016036",
+    "name": "Dr. Eka Putra, S.Si., M.Si.",
+    "email": "eka.putra@univ.ac.id",
+    "study_program_id": "2b8697a4-8347-4c90-965f-c210b6fbe4a0"
+  },
+  {
+    "id": "41526374-8596-4ff0-abc1-89abcdef0112",
+    "nip": "198637142016017037",
+    "name": "Prof. Dr. Siska Wati, S.Si., M.Si.",
+    "email": "siska.wati@univ.ac.id",
+    "study_program_id": "2b8697a4-8347-4c90-965f-c210b6fbe4a0"
+  },
+  {
+    "id": "52637485-96a7-4001-bcd2-9abcdef01223",
+    "nip": "198738192017018038",
+    "name": "Dr. Reza Fahmi, S.Si., M.Si.",
+    "email": "reza.fahmi@univ.ac.id",
+    "study_program_id": "2b8697a4-8347-4c90-965f-c210b6fbe4a0"
+  },
+  {
+    "id": "637485a6-a7b8-4112-cde3-abcdef012334",
+    "nip": "198839242018019039",
+    "name": "Dr. Nita Sari, S.Si., M.Si.",
+    "email": "nita.sari@univ.ac.id",
+    "study_program_id": "2b8697a4-8347-4c90-965f-c210b6fbe4a0"
+  },
+  {
+    "id": "7485a6b7-b8c9-4223-def4-bcdef0123445",
+    "nip": "198940292019020040",
+    "name": "Dr. Dimas Pratama, S.Si., M.Si.",
+    "email": "dimas.pratama@univ.ac.id",
+    "study_program_id": "2b8697a4-8347-4c90-965f-c210b6fbe4a0"
+  },
+  {
+    "id": "85a6b7c8-c9da-4334-ef05-cdef01234556",
+    "nip": "198541102020021041",
+    "name": "Dr. Agung Nugroho, S.Si., M.Si.",
+    "email": "agung.nugroho@univ.ac.id",
+    "study_program_id": "bdb7ccc4-4b9b-4f44-b030-b0f4187c3a40"
+  },
+  {
+    "id": "96a7b8c9-daeb-4445-f016-def012345667",
+    "nip": "198642152021022042",
+    "name": "Prof. Dr. Retno Wulandari, S.Si., M.Si.",
+    "email": "retno.wulandari@univ.ac.id",
+    "study_program_id": "bdb7ccc4-4b9b-4f44-b030-b0f4187c3a40"
+  },
+  {
+    "id": "a7b8c9da-ebfc-4556-0127-ef0123456778",
+    "nip": "198743202022023043",
+    "name": "Dr. Yoga Pratama, S.Si., M.Si.",
+    "email": "yoga.pratama@univ.ac.id",
+    "study_program_id": "bdb7ccc4-4b9b-4f44-b030-b0f4187c3a40"
+  },
+  {
+    "id": "b8c9daeb-fc0d-4667-1238-f01234567889",
+    "nip": "198844252023024044",
+    "name": "Dr. Indah Permata, S.Si., M.Si.",
+    "email": "indah.permata@univ.ac.id",
+    "study_program_id": "bdb7ccc4-4b9b-4f44-b030-b0f4187c3a40"
+  },
+  {
+    "id": "c9daebfc-0d1e-4778-2349-01234567899a",
+    "nip": "198945302024025045",
+    "name": "Dr. Wahyu Hidayat, S.Si., M.Si.",
+    "email": "wahyu.hidayat@univ.ac.id",
+    "study_program_id": "bdb7ccc4-4b9b-4f44-b030-b0f4187c3a40"
+  },
+  {
+    "id": "daebfc0d-1e2f-4889-345a-123456789aab",
+    "nip": "198546112010011046",
+    "name": "Dr. Anisa Rahman, S.Psi., M.Psi.",
+    "email": "anisa.rahman@univ.ac.id",
+    "study_program_id": "2c4fdcdc-7f05-4c65-899e-8829a7eae7f1"
+  },
+  {
+    "id": "ebfc0d1e-2f30-499a-456b-23456789abbc",
+    "nip": "198647162011012047",
+    "name": "Prof. Dr. Doni Setiawan, S.Psi., M.Psi.",
+    "email": "doni.setiawan@univ.ac.id",
+    "study_program_id": "2c4fdcdc-7f05-4c65-899e-8829a7eae7f1"
+  },
+  {
+    "id": "fc0d1e2f-3041-4aab-567c-3456789abcc2",
+    "nip": "198748212012013048",
+    "name": "Dr. Melani Sari, S.Psi., M.Psi.",
+    "email": "melani.sari@univ.ac.id",
+    "study_program_id": "2c4fdcdc-7f05-4c65-899e-8829a7eae7f1"
+  },
+  {
+    "id": "0d1e2f30-4152-4bbc-678d-456789abcdd2",
+    "nip": "198849262013014049",
+    "name": "Dr. Farid Aslam, S.Psi., M.Psi.",
+    "email": "farid.aslam@univ.ac.id",
+    "study_program_id": "2c4fdcdc-7f05-4c65-899e-8829a7eae7f1"
+  },
+  {
+    "id": "1e2f3041-5263-4ccd-789e-56789abcdee2",
+    "nip": "198950012014015050",
+    "name": "Dr. Lisa Anggraini, S.Psi., M.Psi.",
+    "email": "lisa.anggraini@univ.ac.id",
+    "study_program_id": "2c4fdcdc-7f05-4c65-899e-8829a7eae7f1"
+  },
+  {
+    "id": "2f304152-6374-4dde-89af-6789abcdeff2",
+    "nip": "198551122015016051",
+    "name": "Prof. Dr. Imam Santoso, S.Psi., M.Psi.",
+    "email": "imam.santoso@univ.ac.id",
+    "study_program_id": "a5b1b6e9-573d-4ce3-9e25-ac5bbaa66aa5"
+  },
+  {
+    "id": "30415263-7485-4eef-9ab0-789abcdef002",
+    "nip": "198652172016017052",
+    "name": "Dr. Putri Maharani, S.Psi., M.Psi.",
+    "email": "putri.maharani@univ.ac.id",
+    "study_program_id": "a5b1b6e9-573d-4ce3-9e25-ac5bbaa66aa5"
+  },
+  {
+    "id": "41526374-8596-4ff0-abc1-89abcdef0113",
+    "nip": "198753222017018053",
+    "name": "Dr. Oka Prasetya, S.Psi., M.Psi.",
+    "email": "oka.prasetya@univ.ac.id",
+    "study_program_id": "a5b1b6e9-573d-4ce3-9e25-ac5bbaa66aa5"
+  },
+  {
+    "id": "52637485-96a7-4001-bcd2-9abcdef01224",
+    "nip": "198854272018019054",
+    "name": "Dr. Ria Amelia, S.Psi., M.Psi.",
+    "email": "ria.amelia@univ.ac.id",
+    "study_program_id": "a5b1b6e9-573d-4ce3-9e25-ac5bbaa66aa5"
+  },
+  {
+    "id": "637485a6-a7b8-4112-cde3-abcdef012335",
+    "nip": "198955022019020055",
+    "name": "Dr. Teguh Wibowo, S.Psi., M.Psi.",
+    "email": "teguh.wibowo@univ.ac.id",
+    "study_program_id": "a5b1b6e9-573d-4ce3-9e25-ac5bbaa66aa5"
+  },
+  {
+    "id": "7485a6b7-b8c9-4223-def4-bcdef0123446",
+    "nip": "198556132020021056",
+    "name": "Prof. Dr. Hasan Abdullah, S.Psi., M.Psi.",
+    "email": "hasan.abdullah@univ.ac.id",
+    "study_program_id": "24af3ced-3ef9-4eec-9590-4cdbc97ec3ae"
+  },
+  {
+    "id": "85a6b7c8-c9da-4334-ef05-cdef01234557",
+    "nip": "198657182021022057",
+    "name": "Dr. Laila Safitri, S.Psi., M.Psi.",
+    "email": "laila.safitri@univ.ac.id",
+    "study_program_id": "24af3ced-3ef9-4eec-9590-4cdbc97ec3ae"
+  },
+  {
+    "id": "96a7b8c9-daeb-4445-f016-def012345668",
+    "nip": "198758232022023058",
+    "name": "Dr. Irfan Hakim, S.Psi., M.Psi.",
+    "email": "irfan.hakim@univ.ac.id",
+    "study_program_id": "24af3ced-3ef9-4eec-9590-4cdbc97ec3ae"
+  },
+  {
+    "id": "a7b8c9da-ebfc-4556-0127-ef0123456779",
+    "nip": "198859282023024059",
+    "name": "Dr. Sari Rahmawati, S.Psi., M.Psi.",
+    "email": "sari.rahmawati@univ.ac.id",
+    "study_program_id": "24af3ced-3ef9-4eec-9590-4cdbc97ec3ae"
+  },
+  {
+    "id": "b8c9daeb-fc0d-4667-1238-f01234567890",
+    "nip": "198960032024025060",
+    "name": "Dr. Adi Nugraha, S.Psi., M.Psi.",
+    "email": "adi.nugraha@univ.ac.id",
+    "study_program_id": "24af3ced-3ef9-4eec-9590-4cdbc97ec3ae"
+  },
+  {
+    "id": "c9daebfc-0d1e-4778-2349-01234567899b",
+    "nip": "198561142010011061",
+    "name": "Dr. Ari Wibisono, S.Farm., Apt.",
+    "email": "ari.wibisono@univ.ac.id",
+    "study_program_id": "d387f95b-69d7-41a7-8a63-a24decada6ee"
+  },
+  {
+    "id": "daebfc0d-1e2f-4889-345a-123456789aac",
+    "nip": "198662192011012062",
+    "name": "Prof. Dr. Nina Sari, S.Farm., Apt.",
+    "email": "nina.sari@univ.ac.id",
+    "study_program_id": "d387f95b-69d7-41a7-8a63-a24decada6ee"
+  },
+  {
+    "id": "ebfc0d1e-2f30-499a-456b-23456789abbd",
+    "nip": "198763242012013063",
+    "name": "Dr. Edy Kurniawan, S.Farm., Apt.",
+    "email": "edy.kurniawan@univ.ac.id",
+    "study_program_id": "d387f95b-69d7-41a7-8a63-a24decada6ee"
+  },
+  {
+    "id": "fc0d1e2f-3041-4aab-567c-3456789abcc3",
+    "nip": "198864292013014064",
+    "name": "Dr. Yuni Astuti, S.Farm., Apt.",
+    "email": "yuni.astuti@univ.ac.id",
+    "study_program_id": "d387f95b-69d7-41a7-8a63-a24decada6ee"
+  },
+  {
+    "id": "0d1e2f30-4152-4bbc-678d-456789abcdd3",
+    "nip": "198965042014015065",
+    "name": "Dr. Heri Susanto, S.Farm., Apt.",
+    "email": "heri.susanto@univ.ac.id",
+    "study_program_id": "d387f95b-69d7-41a7-8a63-a24decada6ee"
+  },
+  {
+    "id": "1e2f3041-5263-4ccd-789e-56789abcdee3",
+    "nip": "198566152015016066",
+    "name": "Prof. Dr. Sinta Maharani, S.Farm., Apt.",
+    "email": "sinta.maharani@univ.ac.id",
+    "study_program_id": "a7a390ca-81b0-4191-8133-4f39234b176b"
+  },
+  {
+    "id": "2f304152-6374-4dde-89af-6789abcdeff3",
+    "nip": "198667202016017067",
+    "name": "Dr. Budi Rahardjo, S.Farm., Apt.",
+    "email": "budi.rahardjo@univ.ac.id",
+    "study_program_id": "a7a390ca-81b0-4191-8133-4f39234b176b"
+  },
+  {
+    "id": "30415263-7485-4eef-9ab0-789abcdef003",
+    "nip": "198768252017018068",
+    "name": "Dr. Dewi Lestari, S.Farm., Apt.",
+    "email": "dewi.lestari@univ.ac.id",
+    "study_program_id": "a7a390ca-81b0-4191-8133-4f39234b176b"
+  },
+  {
+    "id": "41526374-8596-4ff0-abc1-89abcdef0114",
+    "nip": "198869302018019069",
+    "name": "Dr. Agus Priyanto, S.Farm., Apt.",
+    "email": "agus.priyanto@univ.ac.id",
+    "study_program_id": "a7a390ca-81b0-4191-8133-4f39234b176b"
+  },
+  {
+    "id": "52637485-96a7-4001-bcd2-9abcdef01225",
+    "nip": "198970052019020070",
+    "name": "Dr. Rita Wulandari, S.Farm., Apt.",
+    "email": "rita.wulandari@univ.ac.id",
+    "study_program_id": "a7a390ca-81b0-4191-8133-4f39234b176b"
+  },
+  {
+    "id": "637485a6-a7b8-4112-cde3-abcdef012336",
+    "nip": "198571162020021071",
+    "name": "Prof. Dr. Joko Widodo, S.Farm., Apt.",
+    "email": "joko.widodo@univ.ac.id",
+    "study_program_id": "4df7f791-e579-4e04-b8cc-06289f98466f"
+  },
+  {
+    "id": "7485a6b7-b8c9-4223-def4-bcdef0123447",
+    "nip": "198672212021022072",
+    "name": "Dr. Mega Sari, S.Farm., Apt.",
+    "email": "mega.sari@univ.ac.id",
+    "study_program_id": "4df7f791-e579-4e04-b8cc-06289f98466f"
+  },
+  {
+    "id": "85a6b7c8-c9da-4334-ef05-cdef01234558",
+    "nip": "198773262022023073",
+    "name": "Dr. Roni Setiawan, S.Farm., Apt.",
+    "email": "roni.setiawan@univ.ac.id",
+    "study_program_id": "4df7f791-e579-4e04-b8cc-06289f98466f"
+  },
+  {
+    "id": "96a7b8c9-daeb-4445-f016-def012345669",
+    "nip": "198874012023024074",
+    "name": "Dr. Indira Sari, S.Farm., Apt.",
+    "email": "indira.sari@univ.ac.id",
+    "study_program_id": "4df7f791-e579-4e04-b8cc-06289f98466f"
+  },
+  {
+    "id": "a7b8c9da-ebfc-4556-0127-ef012345677a",
+    "nip": "198975062024025075",
+    "name": "Dr. Darmawan Putra, S.Farm., Apt.",
+    "email": "darmawan.putra@univ.ac.id",
+    "study_program_id": "4df7f791-e579-4e04-b8cc-06289f98466f"
+  },
+  {
+    "id": "b8c9daeb-fc0d-4667-1238-f01234567891",
+    "nip": "198576172010011076",
+    "name": "Dr. Sari Indah, S.ST., M.Keb.",
+    "email": "sari.indah.keb@univ.ac.id",
+    "study_program_id": "09ac7b65-93b9-44d2-86f4-ae83fd6287cc"
+  },
+  {
+    "id": "c9daebfc-0d1e-4778-2349-01234567899c",
+    "nip": "198677222011012077",
+    "name": "Prof. Dr. Ani Wijayanti, S.ST., M.Keb.",
+    "email": "ani.wijayanti@univ.ac.id",
+    "study_program_id": "09ac7b65-93b9-44d2-86f4-ae83fd6287cc"
+  },
+  {
+    "id": "daebfc0d-1e2f-4889-345a-123456789aad",
+    "nip": "198778272012013078",
+    "name": "Dr. Rina Wati, S.ST., M.Keb.",
+    "email": "rina.wati@univ.ac.id",
+    "study_program_id": "09ac7b65-93b9-44d2-86f4-ae83fd6287cc"
+  },
+  {
+    "id": "ebfc0d1e-2f30-499a-456b-23456789abbe",
+    "nip": "198879022013014079",
+    "name": "Dr. Lilis Suryani, S.ST., M.Keb.",
+    "email": "lilis.suryani@univ.ac.id",
+    "study_program_id": "09ac7b65-93b9-44d2-86f4-ae83fd6287cc"
+  },
+  {
+    "id": "fc0d1e2f-3041-4aab-567c-3456789abcc4",
+    "nip": "198980072014015080",
+    "name": "Dr. Wiwik Setiawati, S.ST., M.Keb.",
+    "email": "wiwik.setiawati@univ.ac.id",
+    "study_program_id": "09ac7b65-93b9-44d2-86f4-ae83fd6287cc"
+  },
+  {
+    "id": "0d1e2f30-4152-4bbc-678d-456789abcdd4",
+    "nip": "198581182015016081",
+    "name": "Dr. Bambang Sutrisno, dr., Sp.PD",
+    "email": "bambang.sutrisno@univ.ac.id",
+    "study_program_id": "dbb23061-f65f-487d-8f40-3f04e098eb97"
+  },
+  {
+    "id": "1e2f3041-5263-4ccd-789e-56789abcdee4",
+    "nip": "198682232016017082",
+    "name": "Prof. Dr. Siti Aisyah, dr., Sp.OG",
+    "email": "siti.aisyah@univ.ac.id",
+    "study_program_id": "dbb23061-f65f-487d-8f40-3f04e098eb97"
+  },
+  {
+    "id": "2f304152-6374-4dde-89af-6789abcdeff4",
+    "nip": "198783282017018083",
+    "name": "Dr. Andi Firmansyah, dr., Sp.A",
+    "email": "andi.firmansyah@univ.ac.id",
+    "study_program_id": "dbb23061-f65f-487d-8f40-3f04e098eb97"
+  },
+  {
+    "id": "30415263-7485-4eef-9ab0-789abcdef004",
+    "nip": "198884032018019084",
+    "name": "Dr. Ratna Sari, dr., Sp.JP",
+    "email": "ratna.sari.dr@univ.ac.id",
+    "study_program_id": "dbb23061-f65f-487d-8f40-3f04e098eb97"
+  },
+  {
+    "id": "41526374-8596-4ff0-abc1-89abcdef0115",
+    "nip": "198985082019020085",
+    "name": "Dr. Ahmad Rizki, dr., Sp.B",
+    "email": "ahmad.rizki@univ.ac.id",
+    "study_program_id": "dbb23061-f65f-487d-8f40-3f04e098eb97"
+  },
+  {
+    "id": "52637485-96a7-4001-bcd2-9abcdef01226",
+    "nip": "198586192020021086",
+    "name": "Prof. Dr. Endang Sari, dr., Sp.PA",
+    "email": "endang.sari@univ.ac.id",
+    "study_program_id": "f23d1df4-cc57-4aee-87f7-307f1c49347b"
+  },
+  {
+    "id": "637485a6-a7b8-4112-cde3-abcdef012337",
+    "nip": "198687242021022087",
+    "name": "Dr. Hendro Prasetyo, dr., Sp.An",
+    "email": "hendro.prasetyo@univ.ac.id",
+    "study_program_id": "f23d1df4-cc57-4aee-87f7-307f1c49347b"
+  },
+  {
+    "id": "7485a6b7-b8c9-4223-def4-bcdef0123448",
+    "nip": "198788292022023088",
+    "name": "Dr. Maya Indira, dr., Sp.PK",
+    "email": "maya.indira@univ.ac.id",
+    "study_program_id": "f23d1df4-cc57-4aee-87f7-307f1c49347b"
+  },
+  {
+    "id": "85a6b7c8-c9da-4334-ef05-cdef01234559",
+    "nip": "198889042023024089",
+    "name": "Dr. Fajar Setiawan, dr., Sp.U",
+    "email": "fajar.setiawan.dr@univ.ac.id",
+    "study_program_id": "f23d1df4-cc57-4aee-87f7-307f1c49347b"
+  },
+  {
+    "id": "96a7b8c9-daeb-4445-f016-def01234566a",
+    "nip": "198990092024025090",
+    "name": "Dr. Retno Maharani, dr., Sp.M",
+    "email": "retno.maharani@univ.ac.id",
+    "study_program_id": "f23d1df4-cc57-4aee-87f7-307f1c49347b"
+  }
+]
