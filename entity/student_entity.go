@@ -10,8 +10,11 @@ type Student struct {
 	Name  string    `gorm:"not null" json:"name"`
 	Email string    `gorm:"unique;not null" json:"email"`
 
-	FacultyID uuid.UUID `gorm:"type:uuid;index" json:"faculty_id,omitempty"`
-	Faculty   Faculty   `gorm:"foreignKey:FacultyID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"faculty,omitempty"`
+	Users  []User   `gorm:"foreignKey:StudentID;constraint:OnDelete:CASCADE;" json:"users"`
+	Theses []Thesis `gorm:"foreignKey:StudentID;constraint:OnDelete:CASCADE;" json:"thesises"`
+
+	StudyProgramID uuid.UUID    `gorm:"type:uuid;index" json:"study_program_id,omitempty"`
+	StudyProgram   StudyProgram `gorm:"foreignKey:StudyProgramID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"study_program,omitempty"`
 
 	TimeStamp
 }
