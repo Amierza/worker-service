@@ -119,5 +119,7 @@ func (wh *webSocketService) SendToUser(userID string, message []byte) error {
 
 		return err
 	}
+
+	log.Printf("[WS SEND] to userID: '%s'", userID)
 	return nil
 }
