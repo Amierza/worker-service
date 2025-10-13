@@ -214,6 +214,7 @@
     "nip": "198531082010011031",
     "name": "Dr. Yudi Pramono, S.Kom., M.SI.",
     "email": "yudi.pramono@univ.ac.id",
+    "total_student": 24,
     "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
   },
   {
@@ -221,6 +222,7 @@
     "nip": "198632132011012032",
     "name": "Prof. Dr. Maya Sari, S.Kom., M.SI.",
     "email": "maya.sari@univ.ac.id",
+    "total_student": 17,
     "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
   },
   {
@@ -228,6 +230,7 @@
     "nip": "198733182012013033",
     "name": "Dr. Toni Hermawan, S.Kom., M.SI.",
     "email": "toni.hermawan@univ.ac.id",
+    "total_student": 27,
     "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
   },
   {
@@ -235,6 +238,7 @@
     "nip": "198834232013014034",
     "name": "Dr. Wulan Dari, S.Kom., M.SI.",
     "email": "wulan.dari@univ.ac.id",
+    "total_student": 13,
     "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
   },
   {
@@ -242,6 +246,7 @@
     "nip": "198935282014015035",
     "name": "Dr. Bayu Setiawan, S.Kom., M.SI.",
     "email": "bayu.setiawan@univ.ac.id",
+    "total_student": 21,
     "study_program_id": "5b2f4a54-0fb7-49e1-a604-8912a0f2008f"
   },
   {

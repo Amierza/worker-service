@@ -6,17 +6,20 @@ import (
 )
 
 type Message struct {
-	ID         uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
-	IsText     bool      `gorm:"not null" json:"is_text"`
-	Text       string    `json:"text"`
-	FileURL    string    `json:"file_url"`
-	SenderRole Role      `gorm:"not null" json:"sender_role"`
+	ID       uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
+	IsText   bool      `gorm:"not null" json:"is_text"`
+	Text     string    `json:"text"`
+	FileURL  string    `json:"file_url,omitempty"`
+	FileType string    `json:"file_type,omitempty"`
 
-	SenderID uuid.UUID `gorm:"type:uuid;index" json:"sender_id"`
-	Sender   User      `gorm:"foreignKey:SenderID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"sender"`
+	SenderRole Role      `gorm:"not null" json:"sender_role"`
+	SenderID   uuid.UUID `gorm:"type:uuid;index" json:"sender_id"`
+	Sender     User      `gorm:"foreignKey:SenderID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"sender"`
 
 	SessionID uuid.UUID `gorm:"type:uuid;index" json:"session_id,omitempty"`
 	Session   Session   `gorm:"foreignKey:SessionID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"session,omitempty"`
+
+	ParentMessageID *uuid.UUID `gorm:"type:uuid;index" json:"parent_message_id,omitempty"`
 
 	TimeStamp
 }

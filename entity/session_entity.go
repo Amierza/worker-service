@@ -9,7 +9,7 @@ import (
 
 type Session struct {
 	ID        uuid.UUID     `gorm:"type:uuid;primaryKey" json:"id"`
-	StartTime time.Time     `json:"start_time"`
+	StartTime *time.Time    `json:"start_time"`
 	EndTime   *time.Time    `json:"end_time"`
 	Status    SessionStatus `gorm:"default:waiting" json:"status"`
 
@@ -18,6 +18,9 @@ type Session struct {
 
 	ThesisID uuid.UUID `gorm:"type:uuid;index" json:"thesis_id,omitempty"`
 	Thesis   Thesis    `gorm:"foreignKey:ThesisID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"thesis,omitempty"`
+
+	UserIDOwner uuid.UUID `gorm:"type:uuid;index" json:"user_id_owner"`
+	UserOwner   User      `gorm:"foreignKey:UserIDOwner;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"user_start"`
 
 	TimeStamp
 }
