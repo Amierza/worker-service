@@ -12,7 +12,9 @@ type User struct {
 	Role       Role      `gorm:"not null" json:"role"`
 	Password   string    `json:"password"`
 
-	Messages []Message `gorm:"foreignKey:SenderID;constraint:OnDelete:CASCADE;" json:"messages"`
+	Messages      []Message      `gorm:"foreignKey:SenderID;constraint:OnDelete:CASCADE;" json:"messages"`
+	Notifications []Notification `gorm:"foreignKey:UserID;constraint:OnDelete:CASCADE;" json:"notifications"`
+	SessionOwners []Session      `gorm:"foreignKey:UserIDOwner;constraint:OnDelete:CASCADE;" json:"session_owners"`
 
 	StudentID *uuid.UUID `gorm:"type:uuid;index" json:"student_id,omitempty"`
 	Student   Student    `gorm:"foreignKey:StudentID;references:ID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:"student,omitempty"`

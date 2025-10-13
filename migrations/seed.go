@@ -31,7 +31,12 @@ func Seed(db *gorm.DB) error {
 		return err
 	}
 
-	err = SeedFromJSON[entity.Thesis](db, "./migrations/json/theses.json", entity.Thesis{}, "StudentID", "LecturerID", "Title")
+	err = SeedFromJSON[entity.Thesis](db, "./migrations/json/theses.json", entity.Thesis{}, "StudentID", "Title", "Description")
+	if err != nil {
+		return err
+	}
+
+	err = SeedFromJSON[entity.ThesisSupervisor](db, "./migrations/json/thesis_supervisors.json", entity.ThesisSupervisor{}, "ThesisID", "LecturerID", "Role")
 	if err != nil {
 		return err
 	}

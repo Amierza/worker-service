@@ -7,8 +7,10 @@ const (
 	ENUM_PAGINATION_LIMIT = 10
 	ENUM_PAGINATION_PAGE  = 1
 
-	ENUM_ROLE_STUDENT  = "student"
-	ENUM_ROLE_LECTURER = "lecturer"
+	ENUM_ROLE_STUDENT            = "student"
+	ENUM_ROLE_LECTURER           = "lecturer"
+	ENUM_ROLE_PRIMARY_LECTURER   = "primary_lecturer"
+	ENUM_ROLE_SECONDARY_LECTURER = "secondary_lecturer"
 
 	ENUM_DEGREE_S1 = "s1"
 	ENUM_DEGREE_S2 = "s2"

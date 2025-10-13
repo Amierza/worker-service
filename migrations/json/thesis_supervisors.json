@@ -1,0 +1,614 @@
+[
+  {
+    "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "thesis_id": "a2439447-b4d8-4f4a-a5b5-6530ab46f93f",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "thesis_id": "a2439447-b4d8-4f4a-a5b5-6530ab46f93f",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "thesis_id": "b3540558-c5e9-4f5b-b6c6-7641bc57f04a",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
+    "thesis_id": "b3540558-c5e9-4f5b-b6c6-7641bc57f04a",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
+    "thesis_id": "c4651669-d6fa-4a6c-c7d7-8752cd68a15b",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
+    "thesis_id": "c4651669-d6fa-4a6c-c7d7-8752cd68a15b",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d",
+    "thesis_id": "d576277a-e7ab-4b7d-d8e8-9863de79b26c",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2e",
+    "thesis_id": "d576277a-e7ab-4b7d-d8e8-9863de79b26c",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3f",
+    "thesis_id": "e687388b-f8bc-4c8e-e9f9-a974ef8ac37d",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4a",
+    "thesis_id": "e687388b-f8bc-4c8e-e9f9-a974ef8ac37d",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b",
+    "thesis_id": "f798499c-a9cd-4d9f-fa0a-ba85fa9bd48e",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6c",
+    "thesis_id": "f798499c-a9cd-4d9f-fa0a-ba85fa9bd48e",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a3b4c5d6-e7f8-4a9b-0c1d-2e3f4a5b6c7d",
+    "thesis_id": "a8a95aad-bade-4e0a-ab1b-cb96ab0ce59f",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b4c5d6e7-f8a9-4b0c-1d2e-3f4a5b6c7d8e",
+    "thesis_id": "a8a95aad-bade-4e0a-ab1b-cb96ab0ce59f",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c5d6e7f8-a9b0-4c1d-2e3f-4a5b6c7d8e9f",
+    "thesis_id": "b9ba6bbe-cbef-4f1b-bc2c-dc07bc1df6a0",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d6e7f8a9-b0c1-4d2e-3f4a-5b6c7d8e9f0a",
+    "thesis_id": "b9ba6bbe-cbef-4f1b-bc2c-dc07bc1df6a0",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1b",
+    "thesis_id": "cacb7ccf-dcf0-4a2c-cd3d-ed18cd2ea7b1",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f8a9b0c1-d2e3-4f4a-5b6c-7d8e9f0a1b2c",
+    "thesis_id": "cacb7ccf-dcf0-4a2c-cd3d-ed18cd2ea7b1",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a9b0c1d2-e3f4-4a5b-6c7d-8e9f0a1b2c3d",
+    "thesis_id": "dbdc8dda-eda1-4b3d-de4e-fe29de3fb8c2",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b0c1d2e3-f4a5-4b6c-7d8e-9f0a1b2c3d4e",
+    "thesis_id": "dbdc8dda-eda1-4b3d-de4e-fe29de3fb8c2",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c1d2e3f4-a5b6-4c7d-8e9f-0a1b2c3d4e5f",
+    "thesis_id": "eced9eeb-fea2-4c4e-ef5f-af3aef4ac9d3",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d2e3f4a5-b6c7-4d8e-9f0a-1b2c3d4e5f6a",
+    "thesis_id": "eced9eeb-fea2-4c4e-ef5f-af3aef4ac9d3",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e3f4a5b6-c7d8-4e9f-0a1b-2c3d4e5f6a7b",
+    "thesis_id": "fdfeaffc-afb3-4d5f-fa6a-ba4bfa5bd0e4",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f4a5b6c7-d8e9-4f0a-1b2c-3d4e5f6a7b8c",
+    "thesis_id": "fdfeaffc-afb3-4d5f-fa6a-ba4bfa5bd0e4",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a5b6c7d8-e9f0-4a1b-2c3d-4e5f6a7b8c9d",
+    "thesis_id": "aeafbaad-bac4-4e6a-ab7b-cb5cab6ce1f5",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b6c7d8e9-f0a1-4b2c-3d4e-5f6a7b8c9d0e",
+    "thesis_id": "aeafbaad-bac4-4e6a-ab7b-cb5cab6ce1f5",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c7d8e9f0-a1b2-4c3d-4e5f-6a7b8c9d0e1f",
+    "thesis_id": "bfb0cbbe-cbd5-4f7b-bc8c-dc6dbc7df2a6",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d8e9f0a1-b2c3-4d4e-5f6a-7b8c9d0e1f2a",
+    "thesis_id": "bfb0cbbe-cbd5-4f7b-bc8c-dc6dbc7df2a6",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e9f0a1b2-c3d4-4e5f-6a7b-8c9d0e1f2a3b",
+    "thesis_id": "cac1dccf-dce6-4a8c-cd9d-ed7ecd8ea3b7",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f0a1b2c3-d4e5-4f6a-7b8c-9d0e1f2a3b4c",
+    "thesis_id": "cac1dccf-dce6-4a8c-cd9d-ed7ecd8ea3b7",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5e",
+    "thesis_id": "dbd2edda-edf7-4b9d-de0e-fe8fde9fb4c8",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6f",
+    "thesis_id": "dbd2edda-edf7-4b9d-de0e-fe8fde9fb4c8",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7a",
+    "thesis_id": "ece3feeb-fea8-4c0e-ef1f-af9aef0ac5d9",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8b",
+    "thesis_id": "ece3feeb-fea8-4c0e-ef1f-af9aef0ac5d9",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9c",
+    "thesis_id": "fdf4affc-afb9-4d1f-fa2a-ba0bfa1bd6ea",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0d",
+    "thesis_id": "fdf4affc-afb9-4d1f-fa2a-ba0bfa1bd6ea",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1e",
+    "thesis_id": "aea5baad-baca-4e2a-ab3b-cb1cab2ce7fb",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2f",
+    "thesis_id": "aea5baad-baca-4e2a-ab3b-cb1cab2ce7fb",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3a",
+    "thesis_id": "bfb6cbbe-cbdb-4f3b-bc4c-dc2dbc3df8ac",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4b",
+    "thesis_id": "bfb6cbbe-cbdb-4f3b-bc4c-dc2dbc3df8ac",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5c",
+    "thesis_id": "cac7dccf-dcec-4a4c-cd5d-ed3ecd4ea9bd",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6d",
+    "thesis_id": "cac7dccf-dcec-4a4c-cd5d-ed3ecd4ea9bd",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a3b4c5d6-e7f8-4a9b-0c1d-2e3f4a5b6c7e",
+    "thesis_id": "dbd8edda-edfd-4b5d-de6e-fe4fde5fb0ce",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b4c5d6e7-f8a9-4b0c-1d2e-3f4a5b6c7d8f",
+    "thesis_id": "dbd8edda-edfd-4b5d-de6e-fe4fde5fb0ce",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c5d6e7f8-a9b0-4c1d-2e3f-4a5b6c7d8e9a",
+    "thesis_id": "ece9feeb-feae-4c6e-ef7f-af5aef6ac1df",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d6e7f8a9-b0c1-4d2e-3f4a-5b6c7d8e9f0b",
+    "thesis_id": "ece9feeb-feae-4c6e-ef7f-af5aef6ac1df",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1c",
+    "thesis_id": "fdfaaffc-afbf-4d7f-fa8a-ba6bfa7bd2e0",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f8a9b0c1-d2e3-4f4a-5b6c-7d8e9f0a1b2d",
+    "thesis_id": "fdfaaffc-afbf-4d7f-fa8a-ba6bfa7bd2e0",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a9b0c1d2-e3f4-4a5b-6c7d-8e9f0a1b2c3e",
+    "thesis_id": "aebabead-bacb-4e8a-ab9b-cb7cab8ce3f1",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b0c1d2e3-f4a5-4b6c-7d8e-9f0a1b2c3d4f",
+    "thesis_id": "aebabead-bacb-4e8a-ab9b-cb7cab8ce3f1",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c1d2e3f4-a5b6-4c7d-8e9f-0a1b2c3d4e5a",
+    "thesis_id": "bfbbcfbe-cbdc-4f9b-bc0c-dc8dbc9df4a2",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d2e3f4a5-b6c7-4d8e-9f0a-1b2c3d4e5f6b",
+    "thesis_id": "bfbbcfbe-cbdc-4f9b-bc0c-dc8dbc9df4a2",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e3f4a5b6-c7d8-4e9f-0a1b-2c3d4e5f6a7c",
+    "thesis_id": "caccddcf-dced-4a0c-cd1d-ed9ecd0ea5b3",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f4a5b6c7-d8e9-4f0a-1b2c-3d4e5f6a7b8d",
+    "thesis_id": "caccddcf-dced-4a0c-cd1d-ed9ecd0ea5b3",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a5b6c7d8-e9f0-4a1b-2c3d-4e5f6a7b8c9e",
+    "thesis_id": "dbddeeda-edfe-4b1d-de2e-fe0fde1fb6c4",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b6c7d8e9-f0a1-4b2c-3d4e-5f6a7b8c9d0f",
+    "thesis_id": "dbddeeda-edfe-4b1d-de2e-fe0fde1fb6c4",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c7d8e9f0-a1b2-4c3d-4e5f-6a7b8c9d0e1a",
+    "thesis_id": "eceeffeb-feaf-4c2e-ef3f-af1aef2ac7d5",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d8e9f0a1-b2c3-4d4e-5f6a-7b8c9d0e1f2b",
+    "thesis_id": "eceeffeb-feaf-4c2e-ef3f-af1aef2ac7d5",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e9f0a1b2-c3d4-4e5f-6a7b-8c9d0e1f2a3c",
+    "thesis_id": "fdf0affc-afb0-4d3f-fa4a-ba2bfa3bd8e6",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f0a1b2c3-d4e5-4f6a-7b8c-9d0e1f2a3b4d",
+    "thesis_id": "fdf0affc-afb0-4d3f-fa4a-ba2bfa3bd8e6",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5f",
+    "thesis_id": "aeb1bfad-bacc-4e4a-ab5b-cb3cab4ce9f7",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6a",
+    "thesis_id": "aeb1bfad-bacc-4e4a-ab5b-cb3cab4ce9f7",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7b",
+    "thesis_id": "bfb2c0be-cbdd-4f5b-bc6c-dc4dbc5df0a8",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8c",
+    "thesis_id": "bfb2c0be-cbdd-4f5b-bc6c-dc4dbc5df0a8",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9d",
+    "thesis_id": "cac3d1cf-dced-4a6c-cd7d-ed5ecd6ea1b9",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0e",
+    "thesis_id": "cac3d1cf-dced-4a6c-cd7d-ed5ecd6ea1b9",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1f",
+    "thesis_id": "dbd4e2da-edfe-4b7d-de8e-fe6fde7fb2ca",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2a",
+    "thesis_id": "dbd4e2da-edfe-4b7d-de8e-fe6fde7fb2ca",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3b",
+    "thesis_id": "ece5f3eb-feaf-4c8e-ef9f-af7aef8ac3db",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4c",
+    "thesis_id": "ece5f3eb-feaf-4c8e-ef9f-af7aef8ac3db",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5d",
+    "thesis_id": "fdf6a4fc-afb0-4d9f-fa0a-ba8bfa9bd4ec",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6e",
+    "thesis_id": "fdf6a4fc-afb0-4d9f-fa0a-ba8bfa9bd4ec",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a3b4c5d6-e7f8-4a9b-0c1d-2e3f4a5b6c7f",
+    "thesis_id": "aeb7b5ad-bacc-4e0a-ab1b-cb9cab0ce5fd",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b4c5d6e7-f8a9-4b0c-1d2e-3f4a5b6c7d8a",
+    "thesis_id": "aeb7b5ad-bacc-4e0a-ab1b-cb9cab0ce5fd",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c5d6e7f8-a9b0-4c1d-2e3f-4a5b6c7d8e9b",
+    "thesis_id": "bfb8c6be-cbdd-4f1b-bc2c-dc0dbc1df6ae",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d6e7f8a9-b0c1-4d2e-3f4a-5b6c7d8e9f0c",
+    "thesis_id": "bfb8c6be-cbdd-4f1b-bc2c-dc0dbc1df6ae",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1d",
+    "thesis_id": "cac9d7cf-dced-4a2c-cd3d-ed1ecd2ea7bf",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f8a9b0c1-d2e3-4f4a-5b6c-7d8e9f0a1b2e",
+    "thesis_id": "cac9d7cf-dced-4a2c-cd3d-ed1ecd2ea7bf",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a9b0c1d2-e3f4-4a5b-6c7d-8e9f0a1b2c3f",
+    "thesis_id": "dbd0e8da-edfe-4b3d-de4e-fe2fde3fb8c0",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b0c1d2e3-f4a5-4b6c-7d8e-9f0a1b2c3d4a",
+    "thesis_id": "dbd0e8da-edfe-4b3d-de4e-fe2fde3fb8c0",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c1d2e3f4-a5b6-4c7d-8e9f-0a1b2c3d4e5b",
+    "thesis_id": "ece1f9eb-feaf-4c4e-ef5f-af3aef4ac9d1",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d2e3f4a5-b6c7-4d8e-9f0a-1b2c3d4e5f6c",
+    "thesis_id": "ece1f9eb-feaf-4c4e-ef5f-af3aef4ac9d1",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e3f4a5b6-c7d8-4e9f-0a1b-2c3d4e5f6a7d",
+    "thesis_id": "fdf2a0fc-afb0-4d5f-fa6a-ba4bfa5bd0e2",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f4a5b6c7-d8e9-4f0a-1b2c-3d4e5f6a7b8e",
+    "thesis_id": "fdf2a0fc-afb0-4d5f-fa6a-ba4bfa5bd0e2",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a5b6c7d8-e9f0-4a1b-2c3d-4e5f6a7b8c9f",
+    "thesis_id": "aeb5b3ad-bacc-4e8a-ab9b-cb7cab8ce3f5",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b6c7d8e9-f0a1-4b2c-3d4e-5f6a7b8c9d0a",
+    "thesis_id": "aeb5b3ad-bacc-4e8a-ab9b-cb7cab8ce3f5",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c7d8e9f0-a1b2-4c3d-4e5f-6a7b8c9d0e1b",
+    "thesis_id": "bfb6c4be-cbdd-4f9b-bc0c-dc8dbc9df4a6",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d8e9f0a1-b2c3-4d4e-5f6a-7b8c9d0e1f2c",
+    "thesis_id": "bfb6c4be-cbdd-4f9b-bc0c-dc8dbc9df4a6",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e9f0a1b2-c3d4-4e5f-6a7b-8c9d0e1f2a3d",
+    "thesis_id": "cac7d5cf-dced-4a0c-cd1d-ed9ecd0ea5b7",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f0a1b2c3-d4e5-4f6a-7b8c-9d0e1f2a3b4e",
+    "thesis_id": "cac7d5cf-dced-4a0c-cd1d-ed9ecd0ea5b7",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c6a",
+    "thesis_id": "dbd8e6da-edfe-4b1d-de2e-fe0fde1fb6c8",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d7a",
+    "thesis_id": "dbd8e6da-edfe-4b1d-de2e-fe0fde1fb6c8",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e8a",
+    "thesis_id": "ece9f7eb-feaf-4c2e-ef3f-af1aef2ac7d9",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f9a",
+    "thesis_id": "ece9f7eb-feaf-4c2e-ef3f-af1aef2ac7d9",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a0a",
+    "thesis_id": "fdf0a8fc-afb0-4d3f-fa4a-ba2bfa3bd8ea",
+    "lecturer_id": "1e2f3041-5263-4ccd-789e-56789abcdee1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b1a",
+    "thesis_id": "fdf0a8fc-afb0-4d3f-fa4a-ba2bfa3bd8ea",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c2a",
+    "thesis_id": "aeb1b9ad-bacc-4e4a-ab5b-cb3cab4ce9fb",
+    "lecturer_id": "2f304152-6374-4dde-89af-6789abcdeff1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d3a",
+    "thesis_id": "aeb1b9ad-bacc-4e4a-ab5b-cb3cab4ce9fb",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e4a",
+    "thesis_id": "bfb2c0be-cbdd-4f5b-bc6c-dc4dbc5df0ac",
+    "lecturer_id": "0d1e2f30-4152-4bbc-678d-456789abcdd1",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f5a",
+    "thesis_id": "bfb2c0be-cbdd-4f5b-bc6c-dc4dbc5df0ac",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "secondary_lecturer"
+  },
+  {
+    "id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a6a",
+    "thesis_id": "cac3d1cf-dced-4a6c-cd7d-ed5ecd6ea1bd",
+    "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb",
+    "role": "primary_lecturer"
+  },
+  {
+    "id": "f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b7a",
+    "thesis_id": "cac3d1cf-dced-4a6c-cd7d-ed5ecd6ea1bd",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1",
+    "role": "secondary_lecturer"
+  }
+]

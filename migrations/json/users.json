@@ -12,5 +12,19 @@
     "role": "lecturer",
     "password": "YudiPramono15",
     "lecturer_id": "ebfc0d1e-2f30-419a-456b-23456789abbb"
+  },
+  {
+    "id": "b7fc23b6-c1eb-4fa1-849e-90a5f9016772",
+    "identifier": "198632132011012032",
+    "role": "lecturer",
+    "password": "MayaSari21",
+    "lecturer_id": "fc0d1e2f-3041-4aab-567c-3456789abcc1"
+  },
+  {
+    "id": "2dc95eb6-689f-4867-8dac-4ccd44aa6808",
+    "identifier": "198501012010011001",
+    "role": "lecturer",
+    "password": "Zainudin15",
+    "lecturer_id": "52dd0ebe-505a-452b-88bd-9042bbc5c687"
   }
 ]

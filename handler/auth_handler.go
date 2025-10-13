@@ -36,12 +36,13 @@ func (ah *authHandler) Login(ctx *gin.Context) {
 
 	result, err := ah.authService.Login(ctx, payload)
 	if err != nil {
-		res := response.BuildResponseFailed(dto.MESSAGE_FAILED_LOGIN_USER, err.Error(), nil)
-		ctx.AbortWithStatusJSON(http.StatusBadRequest, res)
+		status := mapErrorToStatus(err)
+		res := response.BuildResponseFailed(dto.FAILED_LOGIN, err.Error(), nil)
+		ctx.AbortWithStatusJSON(status, res)
 		return
 	}
 
-	res := response.BuildResponseSuccess(dto.MESSAGE_SUCCESS_LOGIN_USER, result)
+	res := response.BuildResponseSuccess(dto.SUCCESS_LOGIN, result)
 	ctx.JSON(http.StatusOK, res)
 }
 
@@ -55,11 +56,12 @@ func (ah *authHandler) RefreshToken(ctx *gin.Context) {
 
 	result, err := ah.authService.RefreshToken(ctx, payload)
 	if err != nil {
-		res := response.BuildResponseFailed(dto.MESSAGE_FAILED_REFRESH_TOKEN, err.Error(), nil)
-		ctx.AbortWithStatusJSON(http.StatusBadRequest, res)
+		status := mapErrorToStatus(err)
+		res := response.BuildResponseFailed(dto.FAILED_REFRESH_TOKEN, err.Error(), nil)
+		ctx.AbortWithStatusJSON(status, res)
 		return
 	}
 
-	res := response.BuildResponseSuccess(dto.MESSAGE_SUCCESS_REFRESH_TOKEN, result)
+	res := response.BuildResponseSuccess(dto.SUCCESS_REFRESH_TOKEN, result)
 	ctx.AbortWithStatusJSON(http.StatusOK, res)
 }

@@ -10,8 +10,10 @@ type (
 )
 
 const (
-	STUDENT  Role = constants.ENUM_ROLE_STUDENT
-	LECTURER Role = constants.ENUM_ROLE_LECTURER
+	STUDENT            Role = constants.ENUM_ROLE_STUDENT
+	LECTURER           Role = constants.ENUM_ROLE_LECTURER
+	PRIMARY_LECTURER   Role = constants.ENUM_ROLE_PRIMARY_LECTURER
+	SECONDARY_LECTURER Role = constants.ENUM_ROLE_SECONDARY_LECTURER
 
 	S1 Degree = constants.ENUM_DEGREE_S1
 	S2 Degree = constants.ENUM_DEGREE_S2
@@ -27,7 +29,7 @@ const (
 )
 
 func IsValidRole(r Role) bool {
-	return r == STUDENT || r == LECTURER
+	return r == STUDENT || r == PRIMARY_LECTURER || r == SECONDARY_LECTURER
 }
 func IsValidDegree(d Degree) bool {
 	return d == S1 || d == S2 || d == S3
