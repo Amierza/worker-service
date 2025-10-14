@@ -258,6 +258,7 @@ type (
 		FileType        string      `json:"file_type,omitempty"`
 		SenderRole      entity.Role `json:"sender_role"`
 		SenderID        uuid.UUID   `json:"sender_id"`
+		SenderName      string      `json:"sender_name"`
 		SessionID       uuid.UUID   `json:"session_id"`
 		ParentMessageID *uuid.UUID  `json:"parent_message_id,omitempty"`
 	}
@@ -270,6 +271,7 @@ type (
 		FileType        string      `json:"file_type,omitempty"`
 		SenderRole      entity.Role `json:"sender_role"`
 		SenderID        uuid.UUID   `json:"sender_id"`
+		SenderName      string      `json:"sender_name"`
 		SessionID       uuid.UUID   `json:"session_id"`
 		ParentMessageID *uuid.UUID  `json:"parent_message_id,omitempty"`
 	}

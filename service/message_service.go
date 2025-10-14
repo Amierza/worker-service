@@ -119,6 +119,14 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 		ParentMessageID: req.ParentMessageID,
 	}
 
+	if user.LecturerID != nil {
+		messageEvent.SenderName = user.Lecturer.Name
+	}
+
+	if user.StudentID != nil {
+		messageEvent.SenderName = user.Student.Name
+	}
+
 	// save to Redis
 	key := fmt.Sprintf("session:%s:messages", sessionID)
 	data, err := json.Marshal(messageEvent)
