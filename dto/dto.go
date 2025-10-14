@@ -115,6 +115,7 @@ var (
 	ErrStatusNotOngoing                             = errors.New("failed end session because not ongoing state")
 	ErrOwnerSessionLeave                            = errors.New("failed leave because owner session")
 	ErrSessionFinished                              = errors.New("failed session is finished")
+	ErrInvalidSessionStatus                         = errors.New("failed invalid session status")
 	ErrSessionWaiting                               = errors.New("failed session not started yet")
 
 	// Notification

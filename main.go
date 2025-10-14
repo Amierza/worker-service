@@ -71,7 +71,7 @@ func main() {
 		sessionHandler = handler.NewSessionHandler(sessionService)
 
 		// Message
-		messageRepo    = repository.NewMessageRepository(db)
+		messageRepo    = repository.NewMessageRepository(db, zapLogger, redisClient)
 		messageService = service.NewMessageService(messageRepo, sessionRepo, userRepo, zapLogger, wsService, jwt, redisClient)
 		messageHandler = handler.NewMessageHandler(messageService)
 	)

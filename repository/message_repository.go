@@ -2,11 +2,15 @@ package repository
 
 import (
 	"context"
+	"encoding/json"
+	"fmt"
 	"math"
 
 	"github.com/Amierza/chat-service/dto"
 	"github.com/Amierza/chat-service/entity"
 	"github.com/Amierza/chat-service/response"
+	"github.com/redis/go-redis/v9"
+	"go.uber.org/zap"
 	"gorm.io/gorm"
 )
 
@@ -16,7 +20,8 @@ type (
 		CreateMessage(ctx context.Context, tx *gorm.DB, message *entity.Message) error
 
 		// READ / GET
-		GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (dto.MessagePaginationRepositoryResponse, error)
+		GetAllMessageFromRedisWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error)
+		GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error)
 
 		// UPDATE / PATCH
 
@@ -24,29 +29,106 @@ type (
 	}
 
 	messageRepository struct {
-		db *gorm.DB
+		db     *gorm.DB
+		logger *zap.Logger
+		redis  *redis.Client
 	}
 )
 
-func NewMessageRepository(db *gorm.DB) *messageRepository {
+func NewMessageRepository(db *gorm.DB, logger *zap.Logger, redis *redis.Client) *messageRepository {
 	return &messageRepository{
-		db: db,
+		db:     db,
+		logger: logger,
+		redis:  redis,
 	}
 }
 
 // CREATE / POST
-func (nr *messageRepository) CreateMessage(ctx context.Context, tx *gorm.DB, message *entity.Message) error {
+func (mr *messageRepository) CreateMessage(ctx context.Context, tx *gorm.DB, message *entity.Message) error {
 	if tx == nil {
-		tx = nr.db
+		tx = mr.db
 	}
 
 	return tx.WithContext(ctx).Create(&message).Error
 }
 
 // READ / GET
-func (cdr *messageRepository) GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (dto.MessagePaginationRepositoryResponse, error) {
+func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error) {
+	if req.PerPage == 0 {
+		req.PerPage = 10
+	}
+	if req.Page == 0 {
+		req.Page = 1
+	}
+
+	start := int64((req.Page - 1) * req.PerPage)
+	end := start + int64(req.PerPage) - 1
+
+	key := fmt.Sprintf("session:%s:messages", sessionID)
+
+	// Get total count
+	count, err := mr.redis.ZCard(ctx, key).Result()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get message count from redis: %w", err)
+	}
+
+	if count == 0 {
+		return &dto.MessagePaginationRepositoryResponse{
+			Messages: []entity.Message{},
+			PaginationResponse: response.PaginationResponse{
+				Page:    req.Page,
+				PerPage: req.PerPage,
+				MaxPage: 0,
+				Count:   0,
+			},
+		}, nil
+	}
+
+	// Ambil data dari Redis (terbaru ke terlama)
+	results, err := mr.redis.ZRevRange(ctx, key, start, end).Result()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get messages from redis: %w", err)
+	}
+
+	var messages []entity.Message
+	for _, raw := range results {
+		var evt dto.MessageEventPublish
+		if err := json.Unmarshal([]byte(raw), &evt); err != nil {
+			mr.logger.Warn("failed to unmarshal redis message", zap.Error(err))
+			continue
+		}
+
+		msg := entity.Message{
+			ID:              evt.MessageID,
+			IsText:          evt.IsText,
+			Text:            evt.Text,
+			FileURL:         evt.FileURL,
+			FileType:        evt.FileType,
+			SenderRole:      evt.SenderRole,
+			SenderID:        evt.SenderID,
+			SessionID:       evt.SessionID,
+			ParentMessageID: evt.ParentMessageID,
+		}
+
+		messages = append(messages, msg)
+	}
+
+	totalPage := int64(math.Ceil(float64(count) / float64(req.PerPage)))
+
+	return &dto.MessagePaginationRepositoryResponse{
+		Messages: messages,
+		PaginationResponse: response.PaginationResponse{
+			Page:    req.Page,
+			PerPage: req.PerPage,
+			MaxPage: totalPage,
+			Count:   count,
+		},
+	}, nil
+}
+
+func (mr *messageRepository) GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error) {
 	if tx == nil {
-		tx = cdr.db
+		tx = mr.db
 	}
 
 	var messages []entity.Message
@@ -63,20 +145,21 @@ func (cdr *messageRepository) GetAllMessageWithPagination(ctx context.Context, t
 
 	query := tx.WithContext(ctx).
 		Model(&entity.Message{}).
-		Preload("User").
+		Preload("Sender.Student.StudyProgram.Faculty").
+		Preload("Sender.Lecturer.StudyProgram.Faculty").
 		Where("session_id = ?", sessionID)
 
 	if err := query.Count(&count).Error; err != nil {
-		return dto.MessagePaginationRepositoryResponse{}, err
+		return nil, err
 	}
 
 	if err := query.Order(`"created_at" DESC`).Scopes(response.Paginate(req.Page, req.PerPage)).Find(&messages).Error; err != nil {
-		return dto.MessagePaginationRepositoryResponse{}, err
+		return nil, err
 	}
 
 	totalPage := int64(math.Ceil(float64(count) / float64(req.PerPage)))
 
-	return dto.MessagePaginationRepositoryResponse{
+	return &dto.MessagePaginationRepositoryResponse{
 		Messages: messages,
 		PaginationResponse: response.PaginationResponse{
 			Page:    req.Page,
