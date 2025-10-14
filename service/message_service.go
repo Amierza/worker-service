@@ -119,6 +119,7 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 		},
 		SessionID:       sID,
 		ParentMessageID: req.ParentMessageID,
+		Timestamp:       time.Now().String(),
 	}
 
 	if user.LecturerID != nil {
@@ -261,6 +262,7 @@ func (ms *messageService) List(ctx context.Context, req response.PaginationReque
 			},
 			SessionID:       message.SessionID,
 			ParentMessageID: message.ParentMessageID,
+			Timestamp:       message.TimeStamp.CreatedAt.String(),
 		}
 
 		if message.Sender.LecturerID != nil {

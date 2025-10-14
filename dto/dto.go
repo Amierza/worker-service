@@ -260,6 +260,7 @@ type (
 		Sender          CustomUserResponse `json:"sender"`
 		SessionID       uuid.UUID          `json:"session_id"`
 		ParentMessageID *uuid.UUID         `json:"parent_message_id,omitempty"`
+		Timestamp       string             `json:"timestamp,omitempty"`
 	}
 	MessageEventPublish struct {
 		MessageID       uuid.UUID          `json:"id"`
@@ -271,6 +272,7 @@ type (
 		Sender          CustomUserResponse `json:"sender"`
 		SessionID       uuid.UUID          `json:"session_id"`
 		ParentMessageID *uuid.UUID         `json:"parent_message_id,omitempty"`
+		Timestamp       string             `json:"timestamp,omitempty"`
 	}
 	SendMessageRequest struct {
 		IsText          bool       `json:"is_text" binding:"required"`
