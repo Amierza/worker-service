@@ -127,8 +127,13 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 		ms.logger.Error("failed marshal message to json", zap.Error(err))
 		return dto.ErrMarshalToJSON
 	}
-	if err := ms.redis.RPush(ctx, key, data).Err(); err != nil {
-		ms.logger.Error("failed push message to redis",
+	// save to Redis as sorted set
+	score := float64(time.Now().UnixNano()) // urut berdasarkan waktu
+	if err := ms.redis.ZAdd(ctx, key, redis.Z{
+		Score:  score,
+		Member: data,
+	}).Err(); err != nil {
+		ms.logger.Error("failed to ZADD message to redis",
 			zap.String("session_id", sessionID),
 			zap.Error(err),
 		)
@@ -196,23 +201,42 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 
 func (ms *messageService) List(ctx context.Context, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationResponse, error) {
 	// validate active session
-	_, found, _ := ms.sessionRepo.GetActiveSessionBySessionID(ctx, nil, sessionID)
+	session, found, err := ms.sessionRepo.GetActiveSessionBySessionID(ctx, nil, sessionID)
 	if !found {
 		ms.logger.Warn("failed get active session by session id",
 			zap.String("session_id", sessionID),
 		)
 		return &dto.MessagePaginationResponse{}, dto.ErrNotFound
 	}
-
-	// get all messages
-	dataWithPaginate, err := ms.messageRepo.GetAllMessageWithPagination(ctx, nil, req, sessionID)
 	if err != nil {
-		ms.logger.Error("failed to get all messages with pagination",
-			zap.Int("page", req.Page),
-			zap.Int("per_page", req.PerPage),
+		ms.logger.Error("failed get active session by session id",
+			zap.String("session_id", sessionID),
 			zap.Error(err),
 		)
-		return &dto.MessagePaginationResponse{}, dto.ErrGetAllMessageWithPagination
+		return &dto.MessagePaginationResponse{}, dto.ErrGetActiveSessionBySessionID
+	}
+
+	var dataWithPaginate *dto.MessagePaginationRepositoryResponse
+	switch session.Status {
+	case "ongoing":
+		// 2️⃣ Ambil dari Redis (chat live)
+		dataWithPaginate, err = ms.messageRepo.GetAllMessageFromRedisWithPagination(ctx, nil, req, sessionID)
+	case "finished":
+		// 3️⃣ Ambil dari DB (history)
+		dataWithPaginate, err = ms.messageRepo.GetAllMessageWithPagination(ctx, nil, req, sessionID)
+	default:
+		ms.logger.Warn("session status invalid for listing messages",
+			zap.String("session_id", sessionID),
+			zap.String("status", string(session.Status)),
+		)
+		return nil, dto.ErrInvalidSessionStatus
+	}
+	if err != nil {
+		ms.logger.Error("failed to get messages",
+			zap.String("session_id", sessionID),
+			zap.Error(err),
+		)
+		return nil, dto.ErrGetAllMessageWithPagination
 	}
 	ms.logger.Info("success get all messages with pagination",
 		zap.Int("page", dataWithPaginate.Page),
