@@ -196,6 +196,7 @@ type (
 		ID         uuid.UUID `json:"id"`
 		Name       string    `json:"name"`
 		Identifier string    `json:"identifier"`
+		Role       string    `json:"role,omitempty"`
 	}
 )
 
@@ -251,29 +252,25 @@ type (
 // Message
 type (
 	MessageResponse struct {
-		ID              uuid.UUID   `json:"id"`
-		IsText          bool        `json:"is_text"`
-		Text            string      `json:"text"`
-		FileURL         string      `json:"file_url,omitempty"`
-		FileType        string      `json:"file_type,omitempty"`
-		SenderRole      entity.Role `json:"sender_role"`
-		SenderID        uuid.UUID   `json:"sender_id"`
-		SenderName      string      `json:"sender_name"`
-		SessionID       uuid.UUID   `json:"session_id"`
-		ParentMessageID *uuid.UUID  `json:"parent_message_id,omitempty"`
+		ID              uuid.UUID          `json:"id"`
+		IsText          bool               `json:"is_text"`
+		Text            string             `json:"text"`
+		FileURL         string             `json:"file_url,omitempty"`
+		FileType        string             `json:"file_type,omitempty"`
+		Sender          CustomUserResponse `json:"sender"`
+		SessionID       uuid.UUID          `json:"session_id"`
+		ParentMessageID *uuid.UUID         `json:"parent_message_id,omitempty"`
 	}
 	MessageEventPublish struct {
-		MessageID       uuid.UUID   `json:"id"`
-		Event           string      `json:"event"`
-		IsText          bool        `json:"is_text"`
-		Text            string      `json:"text"`
-		FileURL         string      `json:"file_url,omitempty"`
-		FileType        string      `json:"file_type,omitempty"`
-		SenderRole      entity.Role `json:"sender_role"`
-		SenderID        uuid.UUID   `json:"sender_id"`
-		SenderName      string      `json:"sender_name"`
-		SessionID       uuid.UUID   `json:"session_id"`
-		ParentMessageID *uuid.UUID  `json:"parent_message_id,omitempty"`
+		MessageID       uuid.UUID          `json:"id"`
+		Event           string             `json:"event"`
+		IsText          bool               `json:"is_text"`
+		Text            string             `json:"text"`
+		FileURL         string             `json:"file_url,omitempty"`
+		FileType        string             `json:"file_type,omitempty"`
+		Sender          CustomUserResponse `json:"sender"`
+		SessionID       uuid.UUID          `json:"session_id"`
+		ParentMessageID *uuid.UUID         `json:"parent_message_id,omitempty"`
 	}
 	SendMessageRequest struct {
 		IsText          bool       `json:"is_text" binding:"required"`

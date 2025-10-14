@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"math"
 
+	"github.com/Amierza/chat-service/constants"
 	"github.com/Amierza/chat-service/dto"
 	"github.com/Amierza/chat-service/entity"
 	"github.com/Amierza/chat-service/response"
@@ -20,8 +21,8 @@ type (
 		CreateMessage(ctx context.Context, tx *gorm.DB, message *entity.Message) error
 
 		// READ / GET
-		GetAllMessageFromRedisWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error)
-		GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error)
+		GetAllMessageFromRedisWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error)
+		GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error)
 
 		// UPDATE / PATCH
 
@@ -53,7 +54,7 @@ func (mr *messageRepository) CreateMessage(ctx context.Context, tx *gorm.DB, mes
 }
 
 // READ / GET
-func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error) {
+func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error) {
 	if req.PerPage == 0 {
 		req.PerPage = 10
 	}
@@ -64,7 +65,7 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 	start := int64((req.Page - 1) * req.PerPage)
 	end := start + int64(req.PerPage) - 1
 
-	key := fmt.Sprintf("session:%s:messages", sessionID)
+	key := fmt.Sprintf("session:%s:messages", session.ID)
 
 	// Get total count
 	count, err := mr.redis.ZCard(ctx, key).Result()
@@ -99,15 +100,30 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 		}
 
 		msg := entity.Message{
-			ID:              evt.MessageID,
-			IsText:          evt.IsText,
-			Text:            evt.Text,
-			FileURL:         evt.FileURL,
-			FileType:        evt.FileType,
-			SenderRole:      evt.SenderRole,
-			SenderID:        evt.SenderID,
+			ID:       evt.MessageID,
+			IsText:   evt.IsText,
+			Text:     evt.Text,
+			FileURL:  evt.FileURL,
+			FileType: evt.FileType,
+			Sender: entity.User{
+				ID:         evt.Sender.ID,
+				Identifier: evt.Sender.Identifier,
+				Role:       entity.Role(evt.Sender.Role),
+			},
 			SessionID:       evt.SessionID,
 			ParentMessageID: evt.ParentMessageID,
+		}
+
+		if evt.Sender.Role == constants.ENUM_ROLE_STUDENT {
+			msg.Sender.StudentID = &session.Thesis.Student.ID
+		}
+
+		if evt.Sender.Role == constants.ENUM_ROLE_LECTURER {
+			for _, supervisor := range session.Thesis.Supervisors {
+				if evt.Sender.Identifier == supervisor.Lecturer.Nip {
+					msg.Sender.LecturerID = &supervisor.Lecturer.ID
+				}
+			}
 		}
 
 		messages = append(messages, msg)
@@ -126,7 +142,7 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 	}, nil
 }
 
-func (mr *messageRepository) GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, sessionID string) (*dto.MessagePaginationRepositoryResponse, error) {
+func (mr *messageRepository) GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error) {
 	if tx == nil {
 		tx = mr.db
 	}
@@ -147,7 +163,7 @@ func (mr *messageRepository) GetAllMessageWithPagination(ctx context.Context, tx
 		Model(&entity.Message{}).
 		Preload("Sender.Student.StudyProgram.Faculty").
 		Preload("Sender.Lecturer.StudyProgram.Faculty").
-		Where("session_id = ?", sessionID)
+		Where("session_id = ?", session.ID)
 
 	if err := query.Count(&count).Error; err != nil {
 		return nil, err
