@@ -107,24 +107,28 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 	// create message event
 	msgID := uuid.New()
 	messageEvent := &dto.MessageEventPublish{
-		Event:           "new_message",
-		MessageID:       msgID,
-		IsText:          req.IsText,
-		Text:            req.Text,
-		FileURL:         req.FileURL,
-		FileType:        req.FileType,
-		SenderRole:      user.Role,
-		SenderID:        user.ID,
+		Event:     "new_message",
+		MessageID: msgID,
+		IsText:    req.IsText,
+		Text:      req.Text,
+		FileURL:   req.FileURL,
+		FileType:  req.FileType,
+		Sender: dto.CustomUserResponse{
+			ID:   user.ID,
+			Role: string(user.Role),
+		},
 		SessionID:       sID,
 		ParentMessageID: req.ParentMessageID,
 	}
 
 	if user.LecturerID != nil {
-		messageEvent.SenderName = user.Lecturer.Name
+		messageEvent.Sender.Name = user.Lecturer.Name
+		messageEvent.Sender.Identifier = user.Lecturer.Nip
 	}
 
 	if user.StudentID != nil {
-		messageEvent.SenderName = user.Student.Name
+		messageEvent.Sender.Name = user.Student.Name
+		messageEvent.Sender.Identifier = user.Student.Nim
 	}
 
 	// save to Redis
@@ -218,10 +222,10 @@ func (ms *messageService) List(ctx context.Context, req response.PaginationReque
 	switch session.Status {
 	case "ongoing":
 		// 2️⃣ Ambil dari Redis (chat live)
-		dataWithPaginate, err = ms.messageRepo.GetAllMessageFromRedisWithPagination(ctx, nil, req, sessionID)
+		dataWithPaginate, err = ms.messageRepo.GetAllMessageFromRedisWithPagination(ctx, nil, req, session)
 	case "finished":
 		// 3️⃣ Ambil dari DB (history)
-		dataWithPaginate, err = ms.messageRepo.GetAllMessageWithPagination(ctx, nil, req, sessionID)
+		dataWithPaginate, err = ms.messageRepo.GetAllMessageWithPagination(ctx, nil, req, session)
 	default:
 		ms.logger.Warn("session status invalid for listing messages",
 			zap.String("session_id", sessionID),
@@ -246,14 +250,27 @@ func (ms *messageService) List(ctx context.Context, req response.PaginationReque
 	var datas []dto.MessageResponse
 	for _, message := range dataWithPaginate.Messages {
 		data := dto.MessageResponse{
-			ID:              message.ID,
-			IsText:          message.IsText,
-			Text:            message.Text,
-			FileURL:         message.FileURL,
-			FileType:        message.FileType,
-			SenderID:        message.SenderID,
+			ID:       message.ID,
+			IsText:   message.IsText,
+			Text:     message.Text,
+			FileURL:  message.FileURL,
+			FileType: message.FileType,
+			Sender: dto.CustomUserResponse{
+				ID:   message.Sender.ID,
+				Role: string(message.Sender.Role),
+			},
 			SessionID:       message.SessionID,
 			ParentMessageID: message.ParentMessageID,
+		}
+
+		if message.Sender.LecturerID != nil {
+			data.Sender.Name = message.Sender.Lecturer.Name
+			data.Sender.Identifier = message.Sender.Lecturer.Nip
+		}
+
+		if message.Sender.StudentID != nil {
+			data.Sender.Name = message.Sender.Student.Name
+			data.Sender.Identifier = message.Sender.Student.Nim
 		}
 
 		datas = append(datas, data)
