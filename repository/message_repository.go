@@ -4,7 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"math"
+	"time"
 
 	"github.com/Amierza/chat-service/constants"
 	"github.com/Amierza/chat-service/dto"
@@ -86,7 +88,7 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 	}
 
 	// Ambil data dari Redis (terbaru ke terlama)
-	results, err := mr.redis.ZRevRange(ctx, key, start, end).Result()
+	results, err := mr.redis.ZRange(ctx, key, start, end).Result()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get messages from redis: %w", err)
 	}
@@ -97,6 +99,12 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 		if err := json.Unmarshal([]byte(raw), &evt); err != nil {
 			mr.logger.Warn("failed to unmarshal redis message", zap.Error(err))
 			continue
+		}
+
+		log.Println(evt.Timestamp)
+		parsedTime, err := time.Parse(time.RFC3339Nano, evt.Timestamp)
+		if err != nil {
+			mr.logger.Warn("failed to parse timestamp", zap.String("timestamp", evt.Timestamp), zap.Error(err))
 		}
 
 		msg := entity.Message{
@@ -112,16 +120,23 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 			},
 			SessionID:       evt.SessionID,
 			ParentMessageID: evt.ParentMessageID,
+			TimeStamp: entity.TimeStamp{
+				CreatedAt: parsedTime,
+			},
 		}
 
 		if evt.Sender.Role == constants.ENUM_ROLE_STUDENT {
 			msg.Sender.StudentID = &session.Thesis.Student.ID
+			msg.Sender.Student.Name = session.Thesis.Student.Name
+			msg.Sender.Student.Nim = session.Thesis.Student.Nim
 		}
 
 		if evt.Sender.Role == constants.ENUM_ROLE_LECTURER {
 			for _, supervisor := range session.Thesis.Supervisors {
 				if evt.Sender.Identifier == supervisor.Lecturer.Nip {
 					msg.Sender.LecturerID = &supervisor.Lecturer.ID
+					msg.Sender.Lecturer.Name = supervisor.Lecturer.Name
+					msg.Sender.Lecturer.Nip = supervisor.Lecturer.Nip
 				}
 			}
 		}
@@ -141,7 +156,6 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 		},
 	}, nil
 }
-
 func (mr *messageRepository) GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error) {
 	if tx == nil {
 		tx = mr.db
