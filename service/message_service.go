@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Amierza/chat-service/constants"
 	"github.com/Amierza/chat-service/dto"
 	"github.com/Amierza/chat-service/jwt"
 	"github.com/Amierza/chat-service/repository"
@@ -153,23 +152,14 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 	)
 
 	var receiverUserIDs []uuid.UUID
-	if user.StudentID != nil && session.Thesis.StudentID != uuid.Nil && *user.StudentID == session.Thesis.StudentID {
-		for _, sup := range session.Thesis.Supervisors {
-			receiverUserIDs = append(receiverUserIDs, sup.LecturerID)
-		}
-	} else if user.Role == constants.ENUM_ROLE_LECTURER {
-		if session.Thesis.StudentID != uuid.Nil {
-			receiverUserIDs = append(receiverUserIDs, session.Thesis.StudentID)
-		}
-		for _, sup := range session.Thesis.Supervisors {
-			if sup.LecturerID != user.Lecturer.ID {
-				receiverUserIDs = append(receiverUserIDs, sup.LecturerID)
-			}
-		}
-	} else {
-		return dto.ErrUnauthorized
+	// tambahkan mahasiswa
+	if session.Thesis.StudentID != uuid.Nil {
+		receiverUserIDs = append(receiverUserIDs, session.Thesis.StudentID)
 	}
-
+	// tambahkan semua dosen pembimbing
+	for _, sup := range session.Thesis.Supervisors {
+		receiverUserIDs = append(receiverUserIDs, sup.LecturerID)
+	}
 	// send message to all receiver
 	for _, receiverID := range receiverUserIDs {
 		receiverUser, found, err := ms.userRepo.GetUserByStudentOrLecturerID(ctx, nil, receiverID.String())
