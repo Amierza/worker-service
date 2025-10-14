@@ -119,7 +119,7 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 		},
 		SessionID:       sID,
 		ParentMessageID: req.ParentMessageID,
-		Timestamp:       time.Now().String(),
+		Timestamp:       time.Now().Format(time.RFC3339Nano),
 	}
 
 	if user.LecturerID != nil {
