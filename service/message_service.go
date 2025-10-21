@@ -106,6 +106,7 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 
 	// create message event
 	msgID := uuid.New()
+	loc, _ := time.LoadLocation("Asia/Jakarta")
 	messageEvent := &dto.MessageEventPublish{
 		Event:     "new_message",
 		MessageID: msgID,
@@ -119,7 +120,7 @@ func (ms *messageService) Send(ctx context.Context, req dto.SendMessageRequest, 
 		},
 		SessionID:       sID,
 		ParentMessageID: req.ParentMessageID,
-		Timestamp:       time.Now().Format(time.RFC3339Nano),
+		Timestamp:       time.Now().In(loc).Format(time.RFC3339Nano),
 	}
 
 	if user.LecturerID != nil {
