@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"time"
 
 	"github.com/Amierza/chat-service/cmd"
 	"github.com/Amierza/chat-service/config/database"
@@ -94,6 +95,8 @@ func main() {
 	if port == "" {
 		port = "8000"
 	}
+
+	time.Local, _ = time.LoadLocation("Asia/Jakarta")
 
 	var serve string
 	if os.Getenv("APP_ENV") == "localhost" {
