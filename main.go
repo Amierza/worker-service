@@ -68,11 +68,11 @@ func main() {
 
 		// Session
 		sessionRepo    = repository.NewSessionRepository(db)
-		sessionService = service.NewSessionService(sessionRepo, notificationRepo, userRepo, zapLogger, wsService, jwt, redisClient)
+		messageRepo    = repository.NewMessageRepository(db, zapLogger, redisClient)
+		sessionService = service.NewSessionService(sessionRepo, messageRepo, notificationRepo, userRepo, zapLogger, rabbitConn, wsService, jwt, redisClient)
 		sessionHandler = handler.NewSessionHandler(sessionService)
 
 		// Message
-		messageRepo    = repository.NewMessageRepository(db, zapLogger, redisClient)
 		messageService = service.NewMessageService(messageRepo, sessionRepo, userRepo, zapLogger, wsService, jwt, redisClient)
 		messageHandler = handler.NewMessageHandler(messageService)
 	)

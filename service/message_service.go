@@ -260,7 +260,6 @@ func (ms *messageService) List(ctx context.Context, req response.PaginationReque
 				ID:   message.Sender.ID,
 				Role: string(message.Sender.Role),
 			},
-			SessionID:       message.SessionID,
 			ParentMessageID: message.ParentMessageID,
 			Timestamp:       message.TimeStamp.CreatedAt.String(),
 		}

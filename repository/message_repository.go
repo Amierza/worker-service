@@ -24,6 +24,7 @@ type (
 
 		// READ / GET
 		GetAllMessageFromRedisWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error)
+		GetAllMessageFromRedis(ctx context.Context, tx *gorm.DB, session *entity.Session) (*[]dto.MessageEventPublish, error)
 		GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error)
 
 		// UPDATE / PATCH
@@ -155,6 +156,29 @@ func (mr *messageRepository) GetAllMessageFromRedisWithPagination(ctx context.Co
 			Count:   count,
 		},
 	}, nil
+}
+func (mr *messageRepository) GetAllMessageFromRedis(ctx context.Context, tx *gorm.DB, session *entity.Session) (*[]dto.MessageEventPublish, error) {
+	key := fmt.Sprintf("session:%s:messages", session.ID)
+
+	results, err := mr.redis.ZRange(ctx, key, 0, -1).Result()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get messages from redis: %w", err)
+	}
+
+	if len(results) == 0 {
+		return &[]dto.MessageEventPublish{}, nil
+	}
+
+	var messages []dto.MessageEventPublish
+	for _, raw := range results {
+		var evt dto.MessageEventPublish
+		if err := json.Unmarshal([]byte(raw), &evt); err != nil {
+			continue
+		}
+		messages = append(messages, evt)
+	}
+
+	return &messages, nil
 }
 func (mr *messageRepository) GetAllMessageWithPagination(ctx context.Context, tx *gorm.DB, req response.PaginationRequest, session *entity.Session) (*dto.MessagePaginationRepositoryResponse, error) {
 	if tx == nil {
