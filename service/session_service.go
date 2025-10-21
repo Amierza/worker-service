@@ -15,6 +15,7 @@ import (
 	"github.com/Amierza/chat-service/repository"
 	"github.com/Amierza/chat-service/response"
 	"github.com/google/uuid"
+	"github.com/rabbitmq/amqp091-go"
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 )
@@ -32,21 +33,25 @@ type (
 
 	sessionService struct {
 		sessionRepo      repository.ISessionRepository
+		messageRepo      repository.IMessageRepository
 		notificationRepo repository.INotificationRepository
 		userRepo         repository.IUserRepository
 		logger           *zap.Logger
+		rabbitmq         *amqp091.Connection
 		wsService        IWebsocketService
 		jwt              jwt.IJWT
 		redis            *redis.Client
 	}
 )
 
-func NewSessionService(sessionRepo repository.ISessionRepository, notificationRepo repository.INotificationRepository, userRepo repository.IUserRepository, logger *zap.Logger, wsService IWebsocketService, jwt jwt.IJWT, redis *redis.Client) *sessionService {
+func NewSessionService(sessionRepo repository.ISessionRepository, messageRepo repository.IMessageRepository, notificationRepo repository.INotificationRepository, userRepo repository.IUserRepository, logger *zap.Logger, rabbitmq *amqp091.Connection, wsService IWebsocketService, jwt jwt.IJWT, redis *redis.Client) *sessionService {
 	return &sessionService{
 		sessionRepo:      sessionRepo,
+		messageRepo:      messageRepo,
 		notificationRepo: notificationRepo,
 		userRepo:         userRepo,
 		logger:           logger,
+		rabbitmq:         rabbitmq,
 		wsService:        wsService,
 		jwt:              jwt,
 		redis:            redis,
@@ -932,6 +937,138 @@ func (ss *sessionService) End(ctx context.Context, sessionID string) (*dto.Sessi
 			)
 		}
 	}
+
+	messages, err := ss.messageRepo.GetAllMessageFromRedis(ctx, nil, session)
+	if err != nil {
+		ss.logger.Error("failed to get messages from redis", zap.Error(err))
+		return nil, dto.ErrGetAllMessageWithPagination
+	}
+
+	ch, err := ss.rabbitmq.Channel()
+	if err != nil {
+		return nil, fmt.Errorf("failed to open channel: %w", err)
+	}
+	defer ch.Close()
+
+	queueName := "summary_task"
+
+	// Declare queue (pastikan queue ada)
+	_, err = ch.QueueDeclare(
+		queueName,
+		true,  // durable
+		false, // autoDelete
+		false, // exclusive
+		false, // noWait
+		nil,   // args
+	)
+	if err != nil {
+		return nil, fmt.Errorf("failed to declare queue: %w", err)
+	}
+
+	// Bungkus ke task
+	task := dto.TaskSummary{
+		SessionID:     session.ID,
+		SessionStatus: string(session.Status),
+		StartedAt:     session.StartTime,
+		EndedAt:       session.EndTime,
+		CreatedAt:     session.CreatedAt,
+		Owner: dto.UserResponse{
+			ID:         session.UserOwner.ID,
+			Identifier: session.UserOwner.Identifier,
+			Role:       session.UserOwner.Role,
+			Student:    mapStudent(session.UserOwner),
+			Lecturer:   mapLecturer(session.UserOwner),
+		},
+		Student: dto.StudentResponse{
+			ID:    session.Thesis.Student.ID,
+			Nim:   session.Thesis.Student.Nim,
+			Name:  session.Thesis.Student.Name,
+			Email: session.Thesis.Student.Email,
+			StudyProgram: dto.StudyProgramResponse{
+				ID:     session.Thesis.Student.StudyProgram.ID,
+				Name:   session.Thesis.Student.StudyProgram.Name,
+				Degree: session.Thesis.Student.StudyProgram.Degree,
+				Faculty: dto.FacultyResponse{
+					ID:   session.Thesis.Student.StudyProgram.Faculty.ID,
+					Name: session.Thesis.Student.StudyProgram.Faculty.Name,
+				},
+			},
+		},
+		ThesisInfo: dto.ThesisSummary{
+			Title:       session.Thesis.Title,
+			Description: session.Thesis.Description,
+			Progress:    session.Thesis.Progress,
+		},
+	}
+
+	for _, sup := range session.Thesis.Supervisors {
+		data := dto.LecturerResponse{
+			ID:           sup.Lecturer.ID,
+			Nip:          sup.Lecturer.Nip,
+			Name:         sup.Lecturer.Name,
+			Email:        sup.Lecturer.Email,
+			TotalStudent: sup.Lecturer.TotalStudent,
+			StudyProgram: dto.StudyProgramResponse{
+				ID:     sup.Lecturer.StudyProgram.ID,
+				Name:   sup.Lecturer.StudyProgram.Name,
+				Degree: sup.Lecturer.StudyProgram.Degree,
+				Faculty: dto.FacultyResponse{
+					ID:   sup.Lecturer.StudyProgram.Faculty.ID,
+					Name: sup.Lecturer.StudyProgram.Faculty.Name,
+				},
+			},
+		}
+
+		task.Supervisors = append(task.Supervisors, data)
+	}
+
+	for _, msg := range *messages {
+		data := dto.MessageSummary{
+			ID:       msg.MessageID,
+			IsText:   msg.IsText,
+			Text:     msg.Text,
+			FileURL:  msg.FileURL,
+			FileType: msg.FileType,
+			Sender: dto.CustomUserResponse{
+				ID:         msg.Sender.ID,
+				Name:       msg.Sender.Name,
+				Identifier: msg.Sender.Identifier,
+				Role:       string(msg.Sender.Role),
+			},
+			ParentMessageID: msg.ParentMessageID,
+			Timestamp:       msg.Timestamp,
+		}
+
+		task.Messages = append(task.Messages, data)
+	}
+
+	data, err := json.Marshal(task)
+	if err != nil {
+		ss.logger.Error("failed marshal summary task", zap.Error(err))
+		return nil, dto.ErrMarshalToJSON
+	}
+
+	// Publish message
+	err = ch.Publish(
+		"",        // exchange
+		queueName, // routing key
+		false,     // mandatory
+		false,     // immediate
+		amqp091.Publishing{
+			ContentType: "application/json",
+			Body:        data,
+		},
+	)
+	if err != nil {
+		return nil, fmt.Errorf("failed to publish message: %w", err)
+	}
+
+	log.Printf("✅ published message to %s", queueName)
+
+	ss.logger.Info("success publish summary task to rabbitmq",
+		zap.String("session_id", sessionID),
+		zap.Int("messages_count", len(*messages)),
+	)
 
 	res := &dto.SessionResponse{
 		ID:        session.ID,

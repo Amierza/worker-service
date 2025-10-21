@@ -154,6 +154,11 @@ type (
 		TotalStudent int                  `json:"total_student"`
 		StudyProgram StudyProgramResponse `json:"study_program"`
 	}
+	ThesisSummary struct {
+		Title       string          `json:"title"`
+		Description string          `json:"description"`
+		Progress    entity.Progress `json:"progress"`
+	}
 	ThesisResponse struct {
 		ID          uuid.UUID             `gorm:"type:uuid;primaryKey" json:"id"`
 		Title       string                `gorm:"not null" json:"title"`
@@ -258,7 +263,6 @@ type (
 		FileURL         string             `json:"file_url,omitempty"`
 		FileType        string             `json:"file_type,omitempty"`
 		Sender          CustomUserResponse `json:"sender"`
-		SessionID       uuid.UUID          `json:"session_id"`
 		ParentMessageID *uuid.UUID         `json:"parent_message_id,omitempty"`
 		Timestamp       string             `json:"timestamp,omitempty"`
 	}
@@ -288,5 +292,35 @@ type (
 	MessagePaginationRepositoryResponse struct {
 		response.PaginationResponse
 		Messages []entity.Message
+	}
+)
+
+// Task Summary Message
+type (
+	TaskSummary struct {
+		SessionID     uuid.UUID  `json:"session_id"`
+		SessionStatus string     `json:"session_status"`
+		StartedAt     *time.Time `json:"started_at"`
+		EndedAt       *time.Time `json:"ended_at"`
+		CreatedAt     time.Time  `json:"created_at"`
+
+		Owner       UserResponse       `json:"owner"`
+		Student     StudentResponse    `json:"student"`
+		Supervisors []LecturerResponse `json:"supervisors"`
+
+		ThesisInfo ThesisSummary `json:"thesis_info"`
+
+		Messages []MessageSummary `json:"messages"`
+	}
+
+	MessageSummary struct {
+		ID              uuid.UUID          `json:"id"`
+		IsText          bool               `json:"is_text"`
+		Text            string             `json:"text,omitempty"`
+		FileURL         string             `json:"file_url,omitempty"`
+		FileType        string             `json:"file_type,omitempty"`
+		Sender          CustomUserResponse `json:"sender"`
+		ParentMessageID *uuid.UUID         `json:"parent_message_id,omitempty"`
+		Timestamp       string             `json:"timestamp"`
 	}
 )
