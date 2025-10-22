@@ -20,7 +20,8 @@ const (
 	ENUM_PROGRESS_BAB2 = "bab2"
 	ENUM_PROGRESS_BAB3 = "bab3"
 
-	ENUM_SESSION_STATUS_WAITING  = "waiting"
-	ENUM_SESSION_STATUS_ONGOING  = "ongoing"
-	ENUM_SESSION_STATUS_FINSIHED = "finished"
+	ENUM_SESSION_STATUS_WAITING            = "waiting"
+	ENUM_SESSION_STATUS_ONGOING            = "ongoing"
+	ENUM_SESSION_STATUS_PROCESSING_SUMMARY = "processing_summary"
+	ENUM_SESSION_STATUS_FINSIHED           = "finished"
 )

@@ -1,6 +1,6 @@
 package entity
 
-import "github.com/Amierza/chat-service/constants"
+import "github.com/Amierza/worker-service/constants"
 
 type (
 	Role          string
@@ -23,9 +23,10 @@ const (
 	BAB2 Progress = constants.ENUM_PROGRESS_BAB2
 	BAB3 Progress = constants.ENUM_PROGRESS_BAB3
 
-	WAITING  SessionStatus = constants.ENUM_SESSION_STATUS_WAITING
-	ONGOING  SessionStatus = constants.ENUM_SESSION_STATUS_ONGOING
-	FINISHED SessionStatus = constants.ENUM_SESSION_STATUS_FINSIHED
+	WAITING            SessionStatus = constants.ENUM_SESSION_STATUS_WAITING
+	ONGOING            SessionStatus = constants.ENUM_SESSION_STATUS_ONGOING
+	PROCESSING_SUMMARY SessionStatus = constants.ENUM_SESSION_STATUS_PROCESSING_SUMMARY
+	FINISHED           SessionStatus = constants.ENUM_SESSION_STATUS_FINSIHED
 )
 
 func IsValidRole(r Role) bool {

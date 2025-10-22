@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Amierza/chat-service/constants"
+	"github.com/Amierza/worker-service/constants"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

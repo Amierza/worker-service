@@ -1,4 +1,4 @@
-module github.com/Amierza/chat-service
+module github.com/Amierza/worker-service
 
 go 1.23.2
 

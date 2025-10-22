@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Amierza/chat-service/constants"
+	"github.com/Amierza/worker-service/constants"
 	"github.com/joho/godotenv"
 	amqp "github.com/rabbitmq/amqp091-go"
 )

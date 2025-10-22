@@ -1,15 +1,20 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 	"time"
 
-	"github.com/Amierza/chat-service/config/database"
-	"github.com/Amierza/chat-service/config/rabbitmq"
-	"github.com/Amierza/chat-service/logger"
-	"github.com/Amierza/chat-service/middleware"
+	"github.com/Amierza/worker-service/config/database"
+	"github.com/Amierza/worker-service/config/rabbitmq"
+	"github.com/Amierza/worker-service/jwt"
+	"github.com/Amierza/worker-service/logger"
+	"github.com/Amierza/worker-service/middleware"
+	"github.com/Amierza/worker-service/repository"
+	"github.com/Amierza/worker-service/service"
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 func main() {
@@ -29,13 +34,28 @@ func main() {
 	defer zapLogger.Sync() // flush buffer
 
 	var (
-	// JWT
-	// jwt = jwt.NewJWT()
+		// JWT
+		jwt = jwt.NewJWT()
 
+		// Consumer
+		consumerRepo    = repository.NewConsumerRepository(db)
+		consumerService = service.NewConsumerService(consumerRepo, zapLogger, rabbitConn, jwt)
+		// consumerHandler = handler.NewConsumerHandler(consumerService)
 	)
 
+	// 🧠 Jalankan consumer di background (langsung listen)
+	go func() {
+		zapLogger.Info("🚀 Starting RabbitMQ consumer listener...")
+		if err := consumerService.ConsumeSummaryTasks(context.Background()); err != nil {
+			zapLogger.Fatal("failed to start consumer", zap.Error(err))
+		}
+	}()
+
+	// Optional: Gin web server (bisa tetap dipakai untuk health check)
 	server := gin.Default()
 	server.Use(middleware.CORSMiddleware())
+
+	// routes.Consumer(server, consumerHandler, jwt) // opsional
 
 	server.Static("/uploads", "./uploads")
 
