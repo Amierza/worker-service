@@ -112,7 +112,7 @@ type (
 		EndedAt       *time.Time `json:"ended_at"`
 		CreatedAt     time.Time  `json:"created_at"`
 
-		Owner       UserResponse       `json:"owner"`
+		Owner       CustomUserResponse `json:"owner"`
 		Student     StudentResponse    `json:"student"`
 		Supervisors []LecturerResponse `json:"supervisors"`
 
