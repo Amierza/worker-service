@@ -4,10 +4,13 @@ import (
 	"context"
 	"log"
 	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
 	"github.com/Amierza/worker-service/config/database"
 	"github.com/Amierza/worker-service/config/rabbitmq"
+	grpcclient "github.com/Amierza/worker-service/grpc_client"
 	"github.com/Amierza/worker-service/jwt"
 	"github.com/Amierza/worker-service/logger"
 	"github.com/Amierza/worker-service/middleware"
@@ -22,10 +25,6 @@ func main() {
 	db := database.SetUpPostgreSQLConnection()
 	defer database.ClosePostgreSQLConnection(db)
 
-	// setup rabbitmq connection
-	rabbitConn := rabbitmq.SetUpRabbitMQConnection()
-	defer rabbitmq.CloseRabbitMQConnection(rabbitConn)
-
 	// Zap logger
 	zapLogger, err := logger.New(true) // true = dev, false = prod
 	if err != nil {
@@ -33,20 +32,47 @@ func main() {
 	}
 	defer zapLogger.Sync() // flush buffer
 
+	// setup rabbitmq connection
+	rabbitConn := rabbitmq.SetUpRabbitMQConnection()
+	defer rabbitmq.CloseRabbitMQConnection(rabbitConn)
+
+	// setup gRPC client ke AI Service
+	grpcTarget := os.Getenv("AI_SERVICE_GRPC_ADDR")
+	if grpcTarget == "" {
+		grpcTarget = "localhost:50051" // default fallback
+	}
+	grpcClient, err := grpcclient.NewSummaryClient(grpcTarget)
+	if err != nil {
+		zapLogger.Fatal("failed to connect to AI gRPC service", zap.Error(err))
+	}
+	defer grpcClient.Close()
+
 	var (
 		// JWT
 		jwt = jwt.NewJWT()
 
 		// Consumer
 		consumerRepo    = repository.NewConsumerRepository(db)
-		consumerService = service.NewConsumerService(consumerRepo, zapLogger, rabbitConn, jwt)
+		consumerService = service.NewConsumerService(consumerRepo, zapLogger, rabbitConn, jwt, grpcClient)
 		// consumerHandler = handler.NewConsumerHandler(consumerService)
 	)
 
-	// 🧠 Jalankan consumer di background (langsung listen)
+	// context + graceful shutdown
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
 	go func() {
-		zapLogger.Info("🚀 Starting RabbitMQ consumer listener...")
-		if err := consumerService.ConsumeSummaryTasks(context.Background()); err != nil {
+		sigCh := make(chan os.Signal, 1)
+		signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
+		<-sigCh
+		zapLogger.Info("received shutdown signal, stopping consumer...")
+		cancel()
+	}()
+
+	// jalankan consumer
+	go func() {
+		zapLogger.Info("starting RabbitMQ consumer listener...")
+		if err := consumerService.ConsumeSummaryTasks(ctx); err != nil {
 			zapLogger.Fatal("failed to start consumer", zap.Error(err))
 		}
 	}()
