@@ -6,11 +6,10 @@ import (
 )
 
 type Message struct {
-	ID       uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
-	IsText   bool      `gorm:"not null" json:"is_text"`
-	Text     string    `json:"text"`
-	FileURL  string    `json:"file_url,omitempty"`
-	FileType string    `json:"file_type,omitempty"`
+	ID      uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
+	IsText  bool      `gorm:"not null" json:"is_text"`
+	Text    string    `json:"text"`
+	FileURL string    `json:"file_url,omitempty"`
 
 	SenderRole Role      `gorm:"not null" json:"sender_role"`
 	SenderID   uuid.UUID `gorm:"type:uuid;index" json:"sender_id"`

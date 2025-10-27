@@ -1,5 +1,10 @@
 *.env
 storage/
-!assets/
+!uploads/
 volumes/
 .vscode/
+uploads/**
+!uploads/
+!uploads/.gitkeep
+migrations/json/**
+migrations/seed.json

@@ -43,7 +43,6 @@ func (cr *consumerRepository) SaveMessages(ctx context.Context, tx *gorm.DB, tas
 			IsText:          m.IsText,
 			Text:            m.Text,
 			FileURL:         m.FileURL,
-			FileType:        m.FileType,
 			SenderRole:      entity.Role(m.Sender.Role),
 			SenderID:        m.Sender.ID,
 			SessionID:       task.SessionID,

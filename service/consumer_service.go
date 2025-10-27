@@ -159,11 +159,10 @@ func (cs *consumerService) ConsumeSummaryTasks(ctx context.Context) error {
 						var messages []*pb.MessageSummary
 						for _, msg := range task.Messages {
 							messages = append(messages, &pb.MessageSummary{
-								Id:       msg.ID.String(),
-								IsText:   msg.IsText,
-								Text:     msg.Text,
-								FileUrl:  msg.FileURL,
-								FileType: msg.FileType,
+								Id:      msg.ID.String(),
+								IsText:  msg.IsText,
+								Text:    msg.Text,
+								FileUrl: msg.FileURL,
 								Sender: &pb.CustomUser{
 									Id:         msg.Sender.ID.String(),
 									Name:       msg.Sender.Name,

@@ -126,7 +126,6 @@ type (
 		IsText          bool               `json:"is_text"`
 		Text            string             `json:"text,omitempty"`
 		FileURL         string             `json:"file_url,omitempty"`
-		FileType        string             `json:"file_type,omitempty"`
 		Sender          CustomUserResponse `json:"sender"`
 		ParentMessageID *uuid.UUID         `json:"parent_message_id,omitempty"`
 		Timestamp       string             `json:"timestamp"`
